@@ -2,6 +2,11 @@
  
  This isn't exactly start at the beggining but having some experience in programming I choosed a hard problem at leetcode.com known as Find Median Sorted Arrays so that are two levels of complexity, the problem and the language.
  
- https://github.com/joaoepj/learningo-go/blob/5983afedc397b58c2445f0e8060c50c63274b4f3/findMedianSortedArrays.go
-
-```func main() {```
+the findMedianSortedArrays function was written to catch some cases that once matched should return the of an integer sorted slice.
+```go
+if len(nums1) == 0 {
+		if len(nums2) == 1 {
+			return float64(nums2[0])
+		} else {
+			return oneArrayMedian(nums2)
+		}```
