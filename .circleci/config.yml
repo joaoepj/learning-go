@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run:
           name: "Say hello"
-          command: "echo -n Hello, World!; echo date"
+          command: "echo -e Hello, World!\n; echo `date`"
          
 
 # Invoke jobs via workflows
