@@ -1,3 +1,3 @@
-# learningo-go
+# learning-go
 
-[See the Wiki](https://github.com/joaoepj/learningo-go/wiki)
+[See the Wiki](https://github.com/joaoepj/learning-go/wiki)
