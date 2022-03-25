@@ -1,5 +1,15 @@
 # learningo-go
- 
+
+
+## Project Setup
+$ mkdir learning-go
+$ cd learning-go
+$ git init
+$ go mod init github.com/joaoepj/learning-go
+... write code
+How to output the executable to build/bin when issuing `go build`? 
+
+
 ## Median of Two Sorted Arrays 
 This isn't exactly start at the beggining but having some experience in ~programming~ not taking advices I choosed a hard problem known as [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) so that are two levels of complexity, the problem and the language.
  
