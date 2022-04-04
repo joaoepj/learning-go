@@ -17,7 +17,10 @@ jobs:
       - checkout
       - run:
           name: "Compiling learning-go"
-          command: "go build -o ./build/bin"
+          command: "go build"
+      - run:
+          name: "Running learning-go"
+          command: "./learning-go"      
          
 
 # Invoke jobs via workflows
