@@ -14,14 +14,11 @@ func main() {
 	var language string
 
 	app := &cli.App{
-		Name: `learning-go
-		
-		learning-go is a repository demonstrating how to apply development
+		Name: "learning-go",
+		Usage: `a repository demonstrating how to apply development
 		best practices in your code while learning the go programming language.
 		For example it uses cli library to allow you to invoke different modules
 		where you can test language features and implement test scenarios`,
-
-		Usage: "fight the loneliness!",
 		Flags: []cli.Flag{
 			&cli.StringFlag{
 				Name:        "lang",
