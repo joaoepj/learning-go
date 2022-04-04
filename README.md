@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/joaoepj/learning-go.svg?style=svg)](https://circleci.com/gh/joaoepj/learning-go)
+
 # learningo-go
 
 
