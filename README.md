@@ -1,3 +1,10 @@
-# learning-go
+# learningo-go
 
-[See the Wiki](https://github.com/joaoepj/learning-go/wiki)
+
+## Project Setup
+$ mkdir learning-go
+$ cd learning-go
+$ git init
+$ go mod init github.com/joaoepj/learning-go
+... write code
+How to output the executable to build/bin when issuing `go build`? 
