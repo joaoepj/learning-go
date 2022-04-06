@@ -1,3 +1,5 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/joaoepj/learning-go)](https://goreportcard.com/report/github.com/joaoepj/learning-go)
+
 # learningo-go
 
 
