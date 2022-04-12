@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 
+	snmp "github.com/joaoepj/learning-go/lg_snmp"
 	"github.com/urfave/cli/v2"
 )
 
@@ -15,6 +16,7 @@ func main() {
 
 	app := &cli.App{
 		Name: "learning-go",
+
 		Usage: `a repository demonstrating how to apply development
 		best practices in your code while learning the go programming language.
 		For example it uses cli library to allow you to invoke different modules
@@ -53,6 +55,15 @@ func main() {
 				Aliases: []string{"a"},
 				Usage:   "add a task to the list",
 				Action: func(c *cli.Context) error {
+					return nil
+				},
+			},
+			{
+				Name:    "snmp",
+				Aliases: []string{"s"},
+				Usage:   "Test the SNMP library gosnmp",
+				Action: func(c *cli.Context) error {
+					snmp.Run()
 					return nil
 				},
 			},
