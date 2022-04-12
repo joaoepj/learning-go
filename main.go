@@ -16,7 +16,8 @@ func main() {
 
 	app := &cli.App{
 		Name: "learning-go",
-		Usage: `learning-go is a repository demonstrating how to apply development
+
+		Usage: `a repository demonstrating how to apply development
 		best practices in your code while learning the go programming language.
 		For example it uses cli library to allow you to invoke different modules
 		where you can test language features and implement test scenarios`,
