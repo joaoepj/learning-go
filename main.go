@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 
+	snmp "github.com/joaoepj/learning-go/lg_snmp"
 	"github.com/urfave/cli/v2"
 )
 
@@ -53,6 +54,15 @@ func main() {
 				Aliases: []string{"a"},
 				Usage:   "add a task to the list",
 				Action: func(c *cli.Context) error {
+					return nil
+				},
+			},
+			{
+				Name:    "snmp",
+				Aliases: []string{"s"},
+				Usage:   "Test the SNMP library gosnmp",
+				Action: func(c *cli.Context) error {
+					snmp.Run()
 					return nil
 				},
 			},
