@@ -1,6 +1,25 @@
 # learningo-go
 
 Go projects are made of modules, and modules are made of packages.
+This is a simple project designed to contain a single module and some packages.
+the learning-go module uses the urfave/cli go library to provide a CLI allowing
+ a single executable to test different snippets of code and organize your 
+ own packages. 
+
+## How to add code to git repo
+
+create or modify file
+
+... write code
+
+... check if it builds
+
+git add .
+
+git commit -m "commit message"
+
+git push
+
 
 ## How to add a module
 $ mkdir learning-go
@@ -9,7 +28,7 @@ $ cd learning-go
 
 $ git init
 
-$ go mod init github.com/joaoepj/learning-go
+$ go mod init github.com/joaoepj/learning-go (create the module - go.mod file )
 
 ... write code
 
