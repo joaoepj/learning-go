@@ -49,10 +49,10 @@ import (
 	"strconv"
 	"time"
 
-	g "github.com/gosnmp/gosnmp"
+	"github.com/gosnmp/gosnmp"
 )
 
-func Run() {
+func SnmpGet() {
 	// get Target and Port from environment
 	envTarget := os.Getenv("GOSNMP_TARGET")
 	envPort := os.Getenv("GOSNMP_PORT")
@@ -66,13 +66,13 @@ func Run() {
 
 	// Build our own GoSNMP struct, rather than using g.Default.
 	// Do verbose logging of packets.
-	params := &g.GoSNMP{
+	params := &gosnmp.GoSNMP{
 		Target:    envTarget,
 		Port:      uint16(port),
 		Community: "report",
-		Version:   g.Version2c,
+		Version:   gosnmp.Version2c,
 		Timeout:   time.Duration(2) * time.Second,
-		Logger:    g.NewLogger(log.New(os.Stdout, "", 0)),
+		Logger:    gosnmp.NewLogger(log.New(os.Stdout, "", 0)),
 	}
 	err := params.Connect()
 	if err != nil {
@@ -82,10 +82,10 @@ func Run() {
 
 	// Function handles for collecting metrics on query latencies.
 	var sent time.Time
-	params.OnSent = func(x *g.GoSNMP) {
+	params.OnSent = func(x *gosnmp.GoSNMP) {
 		sent = time.Now()
 	}
-	params.OnRecv = func(x *g.GoSNMP) {
+	params.OnRecv = func(x *gosnmp.GoSNMP) {
 		log.Println("Query latency in seconds:", time.Since(sent).Seconds())
 	}
 
@@ -106,13 +106,50 @@ func Run() {
 		// the Value of each variable returned by Get() implements
 		// interface{}. You could do a type switch...
 		switch variable.Type {
-		case g.OctetString:
+		case gosnmp.OctetString:
 			fmt.Printf("string: %s\n", string(variable.Value.([]byte)))
 		default:
 			// ... or often you're just interested in numeric values.
 			// ToBigInt() will return the Value as a BigInt, for plugging
 			// into your calculations.
-			fmt.Printf("number: %d\n", g.ToBigInt(variable.Value))
+			fmt.Printf("number: %d\n", gosnmp.ToBigInt(variable.Value))
 		}
 	}
+}
+
+func SnmpWalk() {
+
+	community := "report"
+
+	target := "200.131.199.134"
+	oid := "1.3.6.1.4.1"
+
+	gosnmp.Default.Target = target
+	gosnmp.Default.Community = community
+	gosnmp.Default.Timeout = time.Duration(10 * time.Second) // Timeout better suited to walking
+	err := gosnmp.Default.Connect()
+	if err != nil {
+		fmt.Printf("Connect err: %v\n", err)
+		os.Exit(1)
+	}
+	defer gosnmp.Default.Conn.Close()
+
+	err = gosnmp.Default.BulkWalk(oid, printValue)
+	if err != nil {
+		fmt.Printf("Walk Error: %v\n", err)
+		os.Exit(1)
+	}
+}
+
+func printValue(pdu gosnmp.SnmpPDU) error {
+	fmt.Printf("%s = ", pdu.Name)
+
+	switch pdu.Type {
+	case gosnmp.OctetString:
+		b := pdu.Value.([]byte)
+		fmt.Printf("STRING: %s\n", string(b))
+	default:
+		fmt.Printf("TYPE %d: %d\n", pdu.Type, gosnmp.ToBigInt(pdu.Value))
+	}
+	return nil
 }

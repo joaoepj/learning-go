@@ -3,7 +3,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 
@@ -12,7 +11,6 @@ import (
 )
 
 func main() {
-	var language string
 
 	app := &cli.App{
 		Name: "learning-go",
@@ -21,24 +19,8 @@ func main() {
 		best practices in your code while learning the go programming language.
 		For example it uses cli library to allow you to invoke different modules
 		where you can test language features and implement test scenarios`,
-		Flags: []cli.Flag{
-			&cli.StringFlag{
-				Name:        "lang",
-				Value:       "english",
-				Usage:       "language for the greeting",
-				Destination: &language,
-			},
-		},
+		Flags: []cli.Flag{},
 		Action: func(c *cli.Context) error {
-			name := "someone"
-			if c.NArg() > 0 {
-				name = c.Args().Get(0)
-			}
-			if language == "spanish" {
-				fmt.Println("Hola", name)
-			} else {
-				fmt.Println("Hello", name)
-			}
 			return nil
 		},
 		Commands: []*cli.Command{
@@ -59,11 +41,20 @@ func main() {
 				},
 			},
 			{
-				Name:    "snmp",
-				Aliases: []string{"s"},
+				Name:    "snmpget",
+				Aliases: []string{""},
 				Usage:   "Test the SNMP library gosnmp",
 				Action: func(c *cli.Context) error {
-					snmp.Run()
+					snmp.SnmpGet()
+					return nil
+				},
+			},
+			{
+				Name:    "snmpwalk",
+				Aliases: []string{""},
+				Usage:   "Test the SNMP library gosnmp",
+				Action: func(c *cli.Context) error {
+					snmp.SnmpWalk()
 					return nil
 				},
 			},
