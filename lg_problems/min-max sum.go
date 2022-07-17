@@ -6,7 +6,7 @@ import (
 )
 
 // A Solution for HackerHank Min-Max Sum Problem
-func MiniMaxSum(arr []int32) {
+func MinMaxSum(arr []int32) {
 	// Write your code here
 	if !constrain1(arr) {
 		os.Exit(1)

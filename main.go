@@ -29,9 +29,26 @@ func main() {
 				Name:    "problems",
 				Aliases: []string{"p"},
 				Usage:   "A set of problem solutions implmented in golang.",
-				Action: func(c *cli.Context) error {
-					problems.Staircase(5)
-					return nil
+				Subcommands: []*cli.Command{
+					{
+						Name:    "staircase",
+						Aliases: []string{"s"},
+						Usage:   "Staircase problem",
+						Action: func(c *cli.Context) error {
+							problems.Staircase(5)
+							return nil
+						},
+					},
+					{
+						Name:    "minmaxsum",
+						Aliases: []string{"m"},
+						Usage:   "Min-Max Sum problem",
+						Action: func(c *cli.Context) error {
+							arr := []int32{2, 8, 5, 9, 2, 5, 7, 1}
+							problems.MinMaxSum(arr)
+							return nil
+						},
+					},
 				},
 			},
 			{
@@ -43,21 +60,28 @@ func main() {
 				},
 			},
 			{
-				Name:    "snmpget",
-				Aliases: []string{""},
+				Name:    "snmp",
+				Aliases: []string{"s"},
 				Usage:   "Test the SNMP library gosnmp",
-				Action: func(c *cli.Context) error {
-					snmp.SnmpGet()
-					return nil
-				},
-			},
-			{
-				Name:    "snmpwalk",
-				Aliases: []string{""},
-				Usage:   "Test the SNMP library gosnmp",
-				Action: func(c *cli.Context) error {
-					snmp.SnmpWalk()
-					return nil
+				Subcommands: []*cli.Command{
+					{
+						Name:    "snmpget",
+						Aliases: []string{"g"},
+						Usage:   "snmpget",
+						Action: func(c *cli.Context) error {
+							snmp.SnmpGet()
+							return nil
+						},
+					},
+					{
+						Name:    "snmpwalk",
+						Aliases: []string{"w"},
+						Usage:   "snmpwalt",
+						Action: func(c *cli.Context) error {
+							snmp.SnmpWalk()
+							return nil
+						},
+					},
 				},
 			},
 		},
