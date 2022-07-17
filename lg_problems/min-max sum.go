@@ -1,5 +1,12 @@
+package problems
+
+import (
+	"fmt"
+	"os"
+)
+
 // A Solution for HackerHank Min-Max Sum Problem
-func miniMaxSum(arr []int32) {
+func MiniMaxSum(arr []int32) {
 	// Write your code here
 	if !constrain1(arr) {
 		os.Exit(1)

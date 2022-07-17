@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 
+	problems "github.com/joaoepj/learning-go/lg_problems"
 	snmp "github.com/joaoepj/learning-go/lg_snmp"
 	"github.com/urfave/cli/v2"
 )
@@ -29,6 +30,7 @@ func main() {
 				Aliases: []string{"p"},
 				Usage:   "A set of problem solutions implmented in golang.",
 				Action: func(c *cli.Context) error {
+					problems.Staircase(5)
 					return nil
 				},
 			},
