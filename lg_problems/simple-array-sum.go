@@ -1,3 +1,8 @@
+package problems
+
+import "os"
+
+// A Solution for HackerHank simpleArraySum Problem
 func simpleArraySum(ar []int32) int32 {
 	// Write your code here
 	if !constrain1(int32(len(ar))) {
