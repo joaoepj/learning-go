@@ -1,3 +1,7 @@
+package lg_problems
+
+import "fmt"
+
 func plusMinus(arr []int32) {
 	// Write your code here
 	var p, n, z int32 = 0, 0, 0

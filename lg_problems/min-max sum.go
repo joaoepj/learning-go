@@ -1,4 +1,4 @@
-package problems
+package lg_problems
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 // A Solution for HackerHank Min-Max Sum Problem
 func MinMaxSum(arr []int32) {
 	// Write your code here
-	if !constrain1(arr) {
+	if !constrain_mms(arr) {
 		os.Exit(1)
 	}
 	var tmp, min, max int = 0, 9223372036854775807, -9223372036854775808
@@ -25,7 +25,7 @@ func MinMaxSum(arr []int32) {
 	fmt.Print(min, " ", max)
 }
 
-func constrain1(slc []int32) bool {
+func constrain_mms(slc []int32) bool {
 	result := false
 	for i := 0; i < len(slc); i++ {
 		if 1 <= slc[int32(i)] && slc[int32(i)] <= 1000000000 {

@@ -1,23 +1,17 @@
-package lgproblems
+package lg_problems
 
-import "os"
-
-func simpleArraySum(ar []int32) int32 {
+func aVeryBigSum(ar []int64) int64 {
 	// Write your code here
-	if !constrain1(int32(len(ar))) {
-		os.Exit(1)
+	var res int64
+	//if !constrain1(len(ar)) {
+	//	panic(-1)
+	//}
+	for _, v := range ar {
+		//if !constrain2(v) {
+		//	panic(-1)
+		//} else {
+		res += v
+		//}
 	}
-
-	for i := 0; i < len(ar); i++ {
-		if !constrain1(ar[i]) {
-			os.Exit(1)
-		}
-	}
-
-	var acc int32 = 0
-	for i := 0; i < len(ar); i++ {
-		acc = acc + ar[i]
-	}
-
-	return acc
+	return res
 }

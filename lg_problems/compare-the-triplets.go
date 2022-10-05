@@ -1,3 +1,7 @@
+package lg_problems
+
+import "os"
+
 func compareTriplets(a []int32, b []int32) []int32 {
 	// Write your code here
 	var acc = []int32{0, 0}

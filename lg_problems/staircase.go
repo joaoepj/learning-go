@@ -1,4 +1,4 @@
-package problems
+package lg_problems
 
 import (
 	"fmt"
