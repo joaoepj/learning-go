@@ -41,11 +41,20 @@ func main() {
 					},
 					{
 						Name:    "minmaxsum",
-						Aliases: []string{"m"},
+						Aliases: []string{"mm"},
 						Usage:   "Min-Max Sum problem",
 						Action: func(c *cli.Context) error {
 							arr := []int32{2, 8, 5, 9, 2, 5, 7, 1}
 							problems.MinMaxSum(arr)
+							return nil
+						},
+					},
+					{
+						Name:    "migratorybirds",
+						Aliases: []string{"mb"},
+						Usage:   "Migratory Birds problem",
+						Action: func(c *cli.Context) error {
+							problems.MigratoryBirds(problems.MigratoryBirds_arr)
 							return nil
 						},
 					},
