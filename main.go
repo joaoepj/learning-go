@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/joaoepj/learning-go/lg_misc"
 	problems "github.com/joaoepj/learning-go/lg_problems"
 	snmp "github.com/joaoepj/learning-go/lg_snmp"
 	"github.com/urfave/cli/v2"
@@ -58,6 +59,15 @@ func main() {
 							return nil
 						},
 					},
+					{
+						Name:    "hourglasssum",
+						Aliases: []string{"hgs"},
+						Usage:   "Hourglass Sum problem",
+						Action: func(c *cli.Context) error {
+							problems.HourglassSum(problems.HourglassSum_arr)
+							return nil
+						},
+					},
 				},
 			},
 			{
@@ -79,6 +89,31 @@ func main() {
 						Usage:   "snmpget",
 						Action: func(c *cli.Context) error {
 							snmp.SnmpGet()
+							return nil
+						},
+					},
+					{
+						Name:    "snmpwalk",
+						Aliases: []string{"w"},
+						Usage:   "snmpwalt",
+						Action: func(c *cli.Context) error {
+							snmp.SnmpWalk()
+							return nil
+						},
+					},
+				},
+			},
+			{
+				Name:    "misc",
+				Aliases: []string{"m"},
+				Usage:   "Miscelaneous code",
+				Subcommands: []*cli.Command{
+					{
+						Name:    "asn1",
+						Aliases: []string{"as"},
+						Usage:   "Test encoding/decoding time with ASN.1 library",
+						Action: func(c *cli.Context) error {
+							lg_misc.Asn1()
 							return nil
 						},
 					},

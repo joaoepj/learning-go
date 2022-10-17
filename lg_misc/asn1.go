@@ -1,4 +1,4 @@
-package main
+package lg_misc
 
 import (
 	"encoding/asn1"
@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func main() {
+func Asn1() {
 	//t1, _ := time.Parse("20220904131020", "20220904131020")
 	t1 := time.Now()
 	var t2 time.Time
