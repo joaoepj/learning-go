@@ -2,7 +2,9 @@ package lg_problems
 
 func myAbs(x int32) int32 {
 	if x < 0 {
-		return int32(-1 * x)
+		// Ops, just the minus would suffice
+		//return int32(-1 * x)
+		return -x
 	} else {
 		return x
 	}
