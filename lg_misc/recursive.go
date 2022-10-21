@@ -25,7 +25,7 @@ func Direct(x []int32, acc []int32) []int32 {
 		return acc
 	} else {
 		t := x[0]
-		y = append(y, 2*t)
+		acc = append(acc, 2*t)
 		return Direct(x[1:len(x)], acc)
 	}
 }
