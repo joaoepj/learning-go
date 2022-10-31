@@ -29,3 +29,32 @@ func Direct(x []int32, acc []int32) []int32 {
 		return Direct(x[1:len(x)], acc)
 	}
 }
+
+// Apply the function recursively as an operator between list elements
+func Operator(x int32) int32 {
+	//stop condition
+	if x == 1 {
+		return 1
+	} else {
+		return x + Operator(x-1)
+	}
+
+}
+
+func Operator2(x []int32) int32 {
+	//stop condition
+	if len(x) == 1 {
+		return x[0]
+	} else {
+		return x[0] + Operator2(x[1:len(x)])
+	}
+
+}
+
+func PopulateInt32Slice(n int32) []int32 {
+	result := make([]int32, n)
+	for i := int32(0); i < n; i++ {
+		result[i] = i + 1
+	}
+	return result
+}
