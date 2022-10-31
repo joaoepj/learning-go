@@ -11,7 +11,7 @@ func Reverse(x []int32, acc []int32) []int32 {
 	} else {
 		// len(x)-1 = last element
 		t := x[len(x)-1]
-		y = append(acc, t)
+		acc = append(acc, t)
 		// x[:len(x)-1] = create a subslice that DO NOT contains the last element
 		return Reverse(x[:len(x)-1], acc)
 	}

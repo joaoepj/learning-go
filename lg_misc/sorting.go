@@ -27,7 +27,6 @@ func SelectionSort(a []int32) []int32 {
 }
 
 func InsertionSort(a []int32) []int32 {
-	var m int32
 	for i, _ := range a[1:] {
 		j := i
 		for j > 0 && a[j] < a[j-1] {
@@ -35,4 +34,5 @@ func InsertionSort(a []int32) []int32 {
 			j = j - 1
 		}
 	}
+	return a
 }
