@@ -1,6 +1,10 @@
 package lg_problems
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/joaoepj/learning-go/lg_misc"
+)
 
 var PickingNumbers_arr = []int32{1, 1, 2, 2, 4, 4, 5, 5, 5}
 
@@ -22,13 +26,6 @@ func PickingNumbers(a []int32) int32 {
 	return result
 }
 
-func myAbs(x int32) int32 {
-	if x < 0 {
-		return -x
-	}
-	return x
-}
-
 // second submission
 func pickingNumbers(a []int32) int32 {
 
@@ -42,7 +39,7 @@ func pickingNumbers(a []int32) int32 {
 			break
 		}
 		// sub array finished
-		if myAbs(a[end+1]-a[end]) > 1 {
+		if lg_misc.Abs32(a[end+1]-a[end]) > 1 {
 			sbl = append(sbl, end-start+1)
 			start = end + 1
 			end = end + 1
