@@ -68,6 +68,15 @@ func main() {
 							return nil
 						},
 					},
+                                       {
+                                                Name:    "missinginteger",
+                                                Aliases: []string{"mi"},
+                                                Usage:   "Missing Integer problem",
+                                                Action: func(c *cli.Context) error {
+							problems.TestMissingInteger()
+                                                        return nil
+                                                },
+                                        },
 				},
 			},
 			{
