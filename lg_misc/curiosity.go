@@ -1,4 +1,4 @@
-package main
+package lg_misc
 
 import (
 	"fmt"
@@ -16,7 +16,9 @@ var (
 	c float64
 )
 
-func main() {
+// instead of printing this function should return some value that allow tests
+// bus as the the tuple involve 3 diffrent types maybe we need a new type
+func Curiosity() {
 	a := 1
 	b := "foo"
 	c := 0.5

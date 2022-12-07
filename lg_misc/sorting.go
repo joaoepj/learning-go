@@ -3,7 +3,7 @@ package lg_misc
 func SelectionSort(a []int32) []int32 {
 	var m int32
 	// traverse the array reward (from last to first)
-	// find the greatest and put it at the end of the unsorted array
+	// find the greatest element and put it at the end of the unsorted array
 
 	// i equals to the position of the last element of unsorted array
 	for i := int32(len(a) - 1); i > 0; i-- {
