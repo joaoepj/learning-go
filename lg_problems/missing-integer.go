@@ -6,14 +6,14 @@ import "fmt"
 // There is a little problem I didnt bother to spot
 // Maybe you are the luck one
 
-      var  MissingInteger_arr = [][]int{
-                {1, 3, 6, 4, 1, 2},
-                {1, 2, 3},
-                {-1, -3},
-                {1, 3},
-                {0, 3},
-                {-5, 3},
-        }
+var MissingInteger_arr = [][]int{
+	{1, 3, 6, 4, 1, 2},
+	{1, 2, 3},
+	{-1, -3},
+	{1, 3},
+	{0, 3},
+	{-5, 3},
+}
 
 func MissingInteger(A []int) int {
 	var result int = -1
@@ -50,14 +50,14 @@ func MissingInteger(A []int) int {
 }
 
 func TestMissingInteger() {
-      var  x = [][]int{
-                {1, 3, 6, 4, 1, 2},
-                {1, 2, 3},
-                {-1, -3},
-                {1, 3},
-                {0, 3},
-                {-5, 3},
-        }
+	var x = [][]int{
+		{1, 3, 6, 4, 1, 2},
+		{1, 2, 3},
+		{-1, -3},
+		{1, 3},
+		{0, 3},
+		{-5, 3},
+	}
 	for _, v := range x {
 		fmt.Println(v, " = ", MissingInteger(v))
 	}

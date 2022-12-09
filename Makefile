@@ -21,4 +21,6 @@ run:
 	$(GO) run ./main.go
 
 fmt:
-	$(GO) fmt 
+	$(GO) fmt ./lg_misc
+	$(GO) fmt ./lg_problems
+	$(GO) fmt ./lg_snmp

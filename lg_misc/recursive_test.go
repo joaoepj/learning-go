@@ -5,8 +5,8 @@ import (
 	"testing"
 )
 
-var testSet = []struct{
-	in []int32
+var testSet = []struct {
+	in  []int32
 	out []int32
 }{
 	{[]int32{1, 2, 3, 4, 5}, []int32{5, 4, 3, 2, 1}},
