@@ -9,6 +9,10 @@ the learning-go module uses the urfave/cli go library to provide a CLI allowing
  a single executable to test different snippets of code and organize your 
  own packages. 
 
+# How to test the code
+
+Golang provides the "testing" package if you need to speed up the writing of your unit tests.
+After you write test functions just call go-test tool and it will find and run yout test code. I have provided a Makefile just to document some usefull go tool commands you can use to test your code.
 
 ## How to add code to git repo
 
