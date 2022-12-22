@@ -12,16 +12,20 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
+var (
+	LearningGoGitHash   = "None"
+	LearningGoGitBranch = "None"
+)
+
 func main() {
 
 	app := &cli.App{
-		Name: "learning-go",
-
-		Usage: `a repository demonstrating how to apply development
-		best practices in your code while learning the go programming language.
-		For example it uses cli library to allow you to invoke different modules
-		where you can test language features and implement test scenarios`,
-		Flags: []cli.Flag{},
+		Name:  "learning-go",
+		Usage: "a repository to learn the go programming language.",
+		UsageText: `learning-go command [command options]
+learning-go [global options]`,
+		Version: LearningGoGitBranch + "-" + LearningGoGitHash,
+		Flags:   []cli.Flag{},
 		Action: func(c *cli.Context) error {
 			return nil
 		},
@@ -29,7 +33,7 @@ func main() {
 			{
 				Name:    "problems",
 				Aliases: []string{"p"},
-				Usage:   "A set of problem solutions implmented in golang.",
+				Usage:   "Some HackerRank problem solutions implemented in golang.",
 				Subcommands: []*cli.Command{
 					{
 						Name:    "staircase",
@@ -68,15 +72,15 @@ func main() {
 							return nil
 						},
 					},
-                                       {
-                                                Name:    "missinginteger",
-                                                Aliases: []string{"mi"},
-                                                Usage:   "Missing Integer problem",
-                                                Action: func(c *cli.Context) error {
+					{
+						Name:    "missinginteger",
+						Aliases: []string{"mi"},
+						Usage:   "Missing Integer problem",
+						Action: func(c *cli.Context) error {
 							problems.TestMissingInteger()
-                                                        return nil
-                                                },
-                                        },
+							return nil
+						},
+					},
 				},
 			},
 			{
@@ -140,7 +144,7 @@ func main() {
 		},
 	}
 
-	err := app.Run(append(os.Args, "help"))
+	err := app.Run(append(os.Args, "--help"))
 	if err != nil {
 		log.Fatal(err)
 	}
