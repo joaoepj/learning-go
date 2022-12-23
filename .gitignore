@@ -1,4 +1,4 @@
 build/
 learning-go
-learning-go.exe
+*.exe
 .vscode
