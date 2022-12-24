@@ -1,6 +1,6 @@
 package lg_problems
 
-func aVeryBigSum(ar []int64) int64 {
+func AVeryBigSum(ar []int64) int64 {
 	// Write your code here
 	var res int64
 	//if !constrain1(len(ar)) {

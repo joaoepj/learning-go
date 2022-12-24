@@ -36,9 +36,36 @@ learning-go [global options]`,
 				Usage:   "Some HackerRank problem solutions implemented in golang.",
 				Subcommands: []*cli.Command{
 					{
+						Name:    "bigsum",
+						Aliases: []string{"bs"},
+						Usage:   "A Very Big Sum Problem",
+						Action: func(c *cli.Context) error {
+							problems.AVeryBigSum([]int64{1.0,2.0,3.0})
+							return nil
+						},
+					},
+					{
+						Name:    "catmouse",
+						Aliases: []string{"cm"},
+						Usage:   "Cats and a Mouse Problem",
+						Action: func(c *cli.Context) error {
+							problems.CatAndMouse(5, 9, 13)
+							return nil
+						},
+					},
+					{
+						Name:    "climbinglearderboard",
+						Aliases: []string{"cl"},
+						Usage:   "Climbing the Leaderboard Problem",
+						Action: func(c *cli.Context) error {
+							problems.ClimbingLeaderboard2([]int32{100, 100, 50, 40, 40, 20, 10}, []int32{5, 25, 50, 120})
+							return nil
+						},
+					},
+					{
 						Name:    "staircase",
 						Aliases: []string{"s"},
-						Usage:   "Staircase problem",
+						Usage:   "Staircase Problem",
 						Action: func(c *cli.Context) error {
 							problems.Staircase(5)
 							return nil
@@ -47,7 +74,7 @@ learning-go [global options]`,
 					{
 						Name:    "minmaxsum",
 						Aliases: []string{"mm"},
-						Usage:   "Min-Max Sum problem",
+						Usage:   "Min-Max Sum Problem",
 						Action: func(c *cli.Context) error {
 							arr := []int32{2, 8, 5, 9, 2, 5, 7, 1}
 							problems.MinMaxSum(arr)
@@ -57,7 +84,7 @@ learning-go [global options]`,
 					{
 						Name:    "migratorybirds",
 						Aliases: []string{"mb"},
-						Usage:   "Migratory Birds problem",
+						Usage:   "Migratory Birds Problem",
 						Action: func(c *cli.Context) error {
 							problems.MigratoryBirds(problems.MigratoryBirds_arr)
 							return nil
@@ -66,7 +93,7 @@ learning-go [global options]`,
 					{
 						Name:    "hourglasssum",
 						Aliases: []string{"hgs"},
-						Usage:   "Hourglass Sum problem",
+						Usage:   "Hourglass Sum Problem",
 						Action: func(c *cli.Context) error {
 							problems.HourglassSum(problems.HourglassSum_arr)
 							return nil
@@ -75,7 +102,7 @@ learning-go [global options]`,
 					{
 						Name:    "missinginteger",
 						Aliases: []string{"mi"},
-						Usage:   "Missing Integer problem",
+						Usage:   "Missing Integer Problem",
 						Action: func(c *cli.Context) error {
 							problems.TestMissingInteger()
 							return nil

@@ -6,6 +6,11 @@ import (
 	lg_misc "github.com/joaoepj/learning-go/lg_misc"
 )
 
+type Player struct {
+	rank  int32
+	score int32
+}
+
 // It works! But not in time
 func ClimbingLeaderboard(ranked []int32, player []int32) []int32 {
 	// Write your code here
@@ -39,7 +44,6 @@ func ClimbingLeaderboard(ranked []int32, player []int32) []int32 {
 	}
 	return result
 }
-
 
 func ClimbingLeaderboard2(ranked []int32, player []int32) []int32 {
 	// Write your code here
@@ -78,7 +82,7 @@ func ClimbingLeaderboard2(ranked []int32, player []int32) []int32 {
 			if player.score == game && len(res) == 0 {
 				res = append(res, player.rank)
 			}
-			
+
 			// if isn't the last, can be inserted
 			if player.score == game && player.rank != res[len(res)-1] {
 				res = append(res, player.rank)
