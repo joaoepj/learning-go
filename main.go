@@ -63,6 +63,16 @@ learning-go [global options]`,
 						},
 					},
 					{
+						Name:    "leftrotation",
+						Aliases: []string{"lr"},
+						Usage:   "Left Rotation Problem",
+						Action: func(c *cli.Context) error {
+							arr := []int32{1, 2, 3, 4, 5}
+							problems.RotLeft(arr, 3)
+							return nil
+						},
+					},
+					{
 						Name:    "staircase",
 						Aliases: []string{"s"},
 						Usage:   "Staircase Problem",
