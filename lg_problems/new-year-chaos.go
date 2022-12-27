@@ -1,5 +1,7 @@
 package lg_problems
 
+import "fmt"
+
 func MinimumBribes1(q []int32) {
     // Write your code here
     var bribes int32

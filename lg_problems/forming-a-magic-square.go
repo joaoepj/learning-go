@@ -9,6 +9,13 @@ type (
 	}
 )
 
+var TheSquare = [][]int32{
+	{1,2,3,4},
+	{5,6,7,8},
+	{1,2,3,4},
+	{5,6,7,8},
+}
+
 // return difference to five
 func five_t(x int32) int32 {
 	if x > 5 {
@@ -23,7 +30,7 @@ func five_bal(x int32) int32 {
 	return -x + 5
 }
 
-func formingMagicSquare(s [][]int32) int32 {
+func FormingMagicSquare(s [][]int32) int32 {
 	// Write your code here
 	var result int32
 	var t = []Pop{{0, 0, 2, 2}, {0, 1, 2, 1}, {0, 2, 2, 0}, {1, 2, 1, 0}}

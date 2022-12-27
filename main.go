@@ -63,40 +63,33 @@ learning-go [global options]`,
 						},
 					},
 					{
-						Name:    "leftrotation",
-						Aliases: []string{"lr"},
-						Usage:   "Left Rotation Problem",
+						Name:    "comparethetriplets",
+						Aliases: []string{"ctt"},
+						Usage:   "Compare The Triplets Problem",
 						Action: func(c *cli.Context) error {
-							arr := []int32{1, 2, 3, 4, 5}
-							problems.RotLeft(arr, 3)
+							t1 := []int32{1, 2, 3}
+							t2 := []int32{1, 2, 3}
+							problems.CompareTriplets(t1, t2)
 							return nil
 						},
 					},
 					{
-						Name:    "staircase",
-						Aliases: []string{"s"},
-						Usage:   "Staircase Problem",
+						Name:    "designerpdfviewer",
+						Aliases: []string{"dpv"},
+						Usage:   "Designer Pdf Viewer Problem",
 						Action: func(c *cli.Context) error {
-							problems.Staircase(5)
+							
+						problems.DesignerPdfViewer(problems.Alphabet_height, "reality")
+							
 							return nil
 						},
 					},
 					{
-						Name:    "minmaxsum",
-						Aliases: []string{"mm"},
-						Usage:   "Min-Max Sum Problem",
+						Name:    "formingmagicsquare",
+						Aliases: []string{"fms"},
+						Usage:   "Forming A Magic Square Problem",
 						Action: func(c *cli.Context) error {
-							arr := []int32{2, 8, 5, 9, 2, 5, 7, 1}
-							problems.MinMaxSum(arr)
-							return nil
-						},
-					},
-					{
-						Name:    "migratorybirds",
-						Aliases: []string{"mb"},
-						Usage:   "Migratory Birds Problem",
-						Action: func(c *cli.Context) error {
-							problems.MigratoryBirds(problems.MigratoryBirds_arr)
+							problems.FormingMagicSquare(problems.TheSquare)
 							return nil
 						},
 					},
@@ -110,6 +103,43 @@ learning-go [global options]`,
 						},
 					},
 					{
+						Name:    "hurdlerace",
+						Aliases: []string{"hr"},
+						Usage:   "Hurdle Race Problem",
+						Action: func(c *cli.Context) error {
+							problems.Staircase(5)
+							return nil
+						},
+					},
+					{
+						Name:    "letfrotation",
+						Aliases: []string{"lr"},
+						Usage:   "Left Rotation Problem",
+						Action: func(c *cli.Context) error {
+							problems.RotLeft([]int32{1,2,3,4,5}, 3)
+							return nil
+						},
+					},
+					{
+						Name:    "migratorybirds",
+						Aliases: []string{"mb"},
+						Usage:   "Migratory Birds Problem",
+						Action: func(c *cli.Context) error {
+							problems.MigratoryBirds(problems.MigratoryBirds_arr)
+							return nil
+						},
+					},
+					{
+						Name:    "minmaxsum",
+						Aliases: []string{"mms"},
+						Usage:   "Min-Max Sum Problem",
+						Action: func(c *cli.Context) error {
+							arr := []int32{2, 8, 5, 9, 2, 5, 7, 1}
+							problems.MinMaxSum(arr)
+							return nil
+						},
+					},
+										{
 						Name:    "missinginteger",
 						Aliases: []string{"mi"},
 						Usage:   "Missing Integer Problem",
@@ -117,8 +147,17 @@ learning-go [global options]`,
 							problems.TestMissingInteger()
 							return nil
 						},
+					},															
+					{
+						Name:    "staircase",
+						Aliases: []string{"s"},
+						Usage:   "Staircase Problem",
+						Action: func(c *cli.Context) error {
+							problems.Staircase(5)
+							return nil
+						},
 					},
-				},
+				}, // Closing Subcommands
 			},
 			{
 				Name:    "add",
