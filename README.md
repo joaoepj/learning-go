@@ -13,6 +13,12 @@ make build
 NAME:
    learning-go - a repository to learn the go programming language.
 
+   Go projects are made of modules, and modules are made of packages.
+   This is a simple project designed to contain a single module and some packages.
+   the learning-go module uses the urfave/cli go library to provide a CLI allowing
+   a single executable to test different snippets of code and organize your 
+   own packages.
+
 USAGE:
    learning-go command [command options]
    learning-go [global options]
@@ -29,12 +35,7 @@ COMMANDS:
 
 GLOBAL OPTIONS:
    --help, -h     show help (default: false)
-   --version, -v  print the version (default: false)
-Go projects are made of modules, and modules are made of packages.
-This is a simple project designed to contain a single module and some packages.
-the learning-go module uses the urfave/cli go library to provide a CLI allowing
- a single executable to test different snippets of code and organize your 
- own packages. 
+   --version, -v  print the version (default: false) 
 ```
 
 # How to test the code
