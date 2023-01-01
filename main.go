@@ -40,7 +40,7 @@ learning-go [global options]`,
 						Aliases: []string{"bs"},
 						Usage:   "A Very Big Sum Problem",
 						Action: func(c *cli.Context) error {
-							problems.AVeryBigSum([]int64{1.0,2.0,3.0})
+							problems.AVeryBigSum([]int64{1.0, 2.0, 3.0})
 							return nil
 						},
 					},
@@ -78,9 +78,9 @@ learning-go [global options]`,
 						Aliases: []string{"dpv"},
 						Usage:   "Designer Pdf Viewer Problem",
 						Action: func(c *cli.Context) error {
-							
-						problems.DesignerPdfViewer(problems.Alphabet_height, "reality")
-							
+
+							problems.DesignerPdfViewer(problems.Alphabet_height, "reality")
+
 							return nil
 						},
 					},
@@ -116,7 +116,7 @@ learning-go [global options]`,
 						Aliases: []string{"lr"},
 						Usage:   "Left Rotation Problem",
 						Action: func(c *cli.Context) error {
-							problems.RotLeft([]int32{1,2,3,4,5}, 3)
+							problems.RotLeft([]int32{1, 2, 3, 4, 5}, 3)
 							return nil
 						},
 					},
@@ -139,7 +139,7 @@ learning-go [global options]`,
 							return nil
 						},
 					},
-										{
+					{
 						Name:    "missinginteger",
 						Aliases: []string{"mi"},
 						Usage:   "Missing Integer Problem",
@@ -147,7 +147,7 @@ learning-go [global options]`,
 							problems.TestMissingInteger()
 							return nil
 						},
-					},															
+					},
 					{
 						Name:    "staircase",
 						Aliases: []string{"s"},

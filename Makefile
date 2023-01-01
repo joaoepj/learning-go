@@ -1,5 +1,5 @@
 
-.PHONY: build
+.PHONY: build fmt ci
 
 LDFLAGS += -X "main.LearningGoGitHash=$(shell git rev-parse HEAD)"
 LDFLAGS += -X "main.LearningGoGitBranch=$(shell git rev-parse --abbrev-ref HEAD)"
@@ -7,6 +7,7 @@ LDFLAGS += -X "main.LearningGoGitBranch=$(shell git rev-parse --abbrev-ref HEAD)
 GOPATH ?= $(go env GOPATH)
 GOBIN ?= $(GOPATH)/bin
 GO := go
+
 
 test:
 	$(GO) test ./lg_misc
@@ -27,6 +28,10 @@ run:
 	$(GO) run ./main.go
 
 fmt:
-	$(GO) fmt ./lg_misc
-	$(GO) fmt ./lg_problems
-	$(GO) fmt ./lg_snmp
+	$(GO) fmt -x ./lg_misc
+	$(GO) fmt -x ./lg_problems
+	$(GO) fmt -x ./lg_snmp
+
+ci:
+	$(MAKE) fmt
+	$(MAKE) build

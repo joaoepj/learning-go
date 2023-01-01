@@ -17,7 +17,7 @@ jobs:
       - checkout
       - run:
           name: "Compiling learning-go"
-          command: "go build"
+          command: "make ci"
       - run:
           name: "Running learning-go"
           command: "./learning-go"      

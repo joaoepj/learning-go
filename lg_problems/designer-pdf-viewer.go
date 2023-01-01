@@ -1,6 +1,6 @@
 package lg_problems
 
-var Alphabet_height = []int32{1,2,3,7,6,4,5,9,8,7,4,7,12,4,23,5,9,12,14,3,2,1,4,6,5,3}
+var Alphabet_height = []int32{1, 2, 3, 7, 6, 4, 5, 9, 8, 7, 4, 7, 12, 4, 23, 5, 9, 12, 14, 3, 2, 1, 4, 6, 5, 3}
 
 func char2index(s string) []int32 {
 	var res []int32
