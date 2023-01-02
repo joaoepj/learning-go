@@ -1,4 +1,4 @@
-[![Go Report Card](https://goreportcard.com/badge/github.com/joaoepj/learning-go)](https://goreportcard.com/report/github.com/joaoepj/learning-go)
+![Go Report Card](https://goreportcard.com/badge/github.com/joaoepj/learning-go)
 ![CircleCI](https://img.shields.io/circleci/build/gh/joaoepj/learning-go)
 
 # learningo-go
