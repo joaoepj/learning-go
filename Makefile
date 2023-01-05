@@ -22,7 +22,7 @@ case_function_test:
 	$(GO) test -v -run "TestCuriosity/Curiosity=1" ./lg_misc
 
 build:
-	$(GO) build -ldflags '$(LDFLAGS)' -o learning-go ./main.go
+	$(GO) build -ldflags '$(LDFLAGS)' -o bin/learning-go ./main.go
 
 run:
 	$(GO) run ./main.go

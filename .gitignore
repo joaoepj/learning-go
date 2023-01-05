@@ -1,4 +1,5 @@
-build/
+bin/
 learning-go
 *.exe
 .vscode
+projects/
