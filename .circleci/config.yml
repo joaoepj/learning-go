@@ -20,7 +20,7 @@ jobs:
           command: "make ci"
       - run:
           name: "Running learning-go"
-          command: "./learning-go"      
+          command: "./bin/learning-go"      
          
 
 # Invoke jobs via workflows
