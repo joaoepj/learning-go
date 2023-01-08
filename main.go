@@ -207,11 +207,11 @@ learning-go [global options]`,
 						},
 					},
 					{
-						Name:    "snmpwalk",
-						Aliases: []string{"w"},
-						Usage:   "snmpwalt",
+						Name:    "ethdial",
+						Aliases: []string{"ed"},
+						Usage:   "ethdial",
 						Action: func(c *cli.Context) error {
-							snmp.SnmpWalk()
+							lg_misc.EthDial()
 							return nil
 						},
 					},
