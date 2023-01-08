@@ -40,7 +40,7 @@ decodeValue: value is 78
 
 */
 
-package snmp
+package lg_misc
 
 import (
 	"fmt"
@@ -121,7 +121,7 @@ func SnmpWalk() {
 
 	community := "report"
 
-	target := "200.131.199.134"
+	target := "127.0.0.1"
 	oid := "1.3.6.1.4.1"
 
 	gosnmp.Default.Target = target

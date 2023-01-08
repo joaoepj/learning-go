@@ -3,12 +3,12 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
 	"github.com/joaoepj/learning-go/lg_misc"
 	problems "github.com/joaoepj/learning-go/lg_problems"
-	snmp "github.com/joaoepj/learning-go/lg_snmp"
 	"github.com/urfave/cli/v2"
 )
 
@@ -24,8 +24,9 @@ func main() {
 		Usage: "a repository to learn the go programming language.",
 		UsageText: `learning-go command [command options]
 learning-go [global options]`,
-		Version: LearningGoGitBranch + "-" + LearningGoGitHash,
-		Flags:   []cli.Flag{},
+		HideVersion: false,
+		Version:     LearningGoGitBranch + "-" + LearningGoGitHash,
+		Flags:       []cli.Flag{},
 		Action: func(c *cli.Context) error {
 			return nil
 		},
@@ -160,39 +161,6 @@ learning-go [global options]`,
 				}, // Closing Subcommands
 			},
 			{
-				Name:    "add",
-				Aliases: []string{"a"},
-				Usage:   "add a task to the list",
-				Action: func(c *cli.Context) error {
-					return nil
-				},
-			},
-			{
-				Name:    "snmp",
-				Aliases: []string{"s"},
-				Usage:   "Test the SNMP library gosnmp",
-				Subcommands: []*cli.Command{
-					{
-						Name:    "snmpget",
-						Aliases: []string{"g"},
-						Usage:   "snmpget",
-						Action: func(c *cli.Context) error {
-							snmp.SnmpGet()
-							return nil
-						},
-					},
-					{
-						Name:    "snmpwalk",
-						Aliases: []string{"w"},
-						Usage:   "snmpwalt",
-						Action: func(c *cli.Context) error {
-							snmp.SnmpWalk()
-							return nil
-						},
-					},
-				},
-			},
-			{
 				Name:    "misc",
 				Aliases: []string{"m"},
 				Usage:   "Miscelaneous code",
@@ -207,11 +175,42 @@ learning-go [global options]`,
 						},
 					},
 					{
-						Name:    "ethdial",
-						Aliases: []string{"ed"},
-						Usage:   "ethdial",
+						Name:    "mediansortedarrays",
+						Aliases: []string{"msa"},
+						Usage:   "Find Median Sorted Arrays",
 						Action: func(c *cli.Context) error {
-							lg_misc.EthDial()
+							x := []int{1, 2}
+							y := []int{3, 4}
+							fmt.Println("v1: ", lg_misc.FindMedianSortedArraysV1(x, y))
+							fmt.Println("v2: ", lg_misc.FindMedianSortedArraysV2(x, y))
+							fmt.Println("v3: ", lg_misc.FindMedianSortedArraysV3(x, y))
+							return nil
+						},
+					},
+					{
+						Name:    "snmpget",
+						Aliases: []string{"sg"},
+						Usage:   "snmpget",
+						Action: func(c *cli.Context) error {
+							lg_misc.SnmpGet()
+							return nil
+						},
+					},
+					{
+						Name:    "snmpwalk",
+						Aliases: []string{"sw"},
+						Usage:   "snmpwalt",
+						Action: func(c *cli.Context) error {
+							lg_misc.SnmpWalk()
+							return nil
+						},
+					},
+					{
+						Name:    "testfdlimit",
+						Aliases: []string{"tfl"},
+						Usage:   "Testing the Limit for File Descriptors",
+						Action: func(c *cli.Context) error {
+							lg_misc.TestFdLimit()
 							return nil
 						},
 					},
@@ -220,7 +219,7 @@ learning-go [global options]`,
 		},
 	}
 
-	err := app.Run(append(os.Args, "--help"))
+	err := app.Run(os.Args)
 	if err != nil {
 		log.Fatal(err)
 	}
