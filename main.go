@@ -131,6 +131,17 @@ learning-go [global options]`,
 						},
 					},
 					{
+						Name:    "minimumbribes",
+						Aliases: []string{"mb2"},
+						Usage:   "Minimun Bribes Problem",
+						Action: func(c *cli.Context) error {
+							for _, arr := range problems.MinimumBribes_arr {
+								problems.MinimumBribes(arr)
+							}
+							return nil
+						},
+					},
+					{
 						Name:    "minmaxsum",
 						Aliases: []string{"mms"},
 						Usage:   "Min-Max Sum Problem",
