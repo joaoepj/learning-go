@@ -19,6 +19,8 @@ var (
 
 func main() {
 
+	log.SetFlags(log.Lshortfile)
+
 	app := &cli.App{
 		Name:  "learning-go",
 		Usage: "a repository to learn the go programming language.",
@@ -141,6 +143,16 @@ learning-go [global options]`,
 							return nil
 						},
 					},
+					{
+						Name:    "minimumswaps2",
+						Aliases: []string{"ms2"},
+						Usage:   "Minimun Swaps 2 Problem",
+						Action: func(c *cli.Context) error {
+							problems.MinimumSwaps2(problems.MinimumSwaps2_arr)
+							return nil
+						},
+					},
+
 					{
 						Name:    "minmaxsum",
 						Aliases: []string{"mms"},
