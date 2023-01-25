@@ -5,12 +5,23 @@ import (
 	"reflect"
 )
 
-var MinimumSwaps2_arr = []int32{7, 1, 3, 2, 4, 5, 6}
+var MinimumSwaps2_arr = [][]int32{
+	{7, 1, 3, 2, 4, 5, 6},
+	{1, 3, 5, 2, 4, 6, 7},
+	{2, 3, 4, 1, 5},
+	{4, 3, 1, 2},
+}
+
+// it works for some cases
+// it is not efficient
 
 func MinimumSwaps2(a []int32) int32 {
 	b := initArray(len(a))
 	var s int32
-	for i, _ := range b {
+	for i := range b {
+		if a[int32(i)] == int32(i)+1 {
+			continue
+		}
 		swap(b, a[int32(i)], b[int32(i)])
 		s = s + 1
 
@@ -19,8 +30,8 @@ func MinimumSwaps2(a []int32) int32 {
 			break
 		}
 	}
-	log.Print(s - 1)
-	return s - 1
+	log.Print(s)
+	return s
 
 }
 

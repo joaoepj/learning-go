@@ -148,7 +148,9 @@ learning-go [global options]`,
 						Aliases: []string{"ms2"},
 						Usage:   "Minimun Swaps 2 Problem",
 						Action: func(c *cli.Context) error {
-							problems.MinimumSwaps2(problems.MinimumSwaps2_arr)
+							for _, arr := range problems.MinimumSwaps2_arr {
+								problems.MinimumSwaps2(arr)
+							}
 							return nil
 						},
 					},
