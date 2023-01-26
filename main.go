@@ -39,6 +39,16 @@ learning-go [global options]`,
 				Usage:   "Some HackerRank problem solutions implemented in golang.",
 				Subcommands: []*cli.Command{
 					{
+						Name:    "arraymanipulation",
+						Aliases: []string{"am"},
+						Usage:   "Array Manipulation Problem",
+						Action: func(c *cli.Context) error {
+							problems.ArrayManipulation(10, problems.ArrayManipulation_arr)
+							return nil
+						},
+					},
+
+					{
 						Name:    "bigsum",
 						Aliases: []string{"bs"},
 						Usage:   "A Very Big Sum Problem",
