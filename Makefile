@@ -39,7 +39,7 @@ run:
 fmt:
 	$(GO) fmt -x ./lg_misc
 	$(GO) fmt -x ./lg_problems
-	$(GO) fmt -x ./lg_snmp
+#	$(GO) fmt -x ./lg_snmp
 
 ci:
 	$(MAKE) fmt
