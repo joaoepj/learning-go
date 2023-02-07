@@ -34,4 +34,5 @@ func CheckMagazine(magazine []string, note []string) {
 			return
 		}
 	}
+	fmt.Print("Yes")
 }
