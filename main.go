@@ -67,6 +67,16 @@ learning-go [global options]`,
 						},
 					},
 					{
+						Name:    "checkmagazine",
+						Aliases: []string{"cm2"},
+						Usage:   "Check Magazine Problem",
+						Action: func(c *cli.Context) error {
+							problems.CheckMagazine(problems.Magazine, problems.Note)
+							return nil
+						},
+					},
+
+					{
 						Name:    "climbinglearderboard",
 						Aliases: []string{"cl"},
 						Usage:   "Climbing the Leaderboard Problem",
