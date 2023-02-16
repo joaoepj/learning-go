@@ -43,7 +43,9 @@ learning-go [global options]`,
 						Aliases: []string{"am"},
 						Usage:   "Array Manipulation Problem",
 						Action: func(c *cli.Context) error {
-							problems.ArrayManipulation(10, problems.ArrayManipulation_arr)
+							for _, arr := range problems.ArrayManipulation_arr {
+								problems.ArrayManipulation(10, arr)
+							}
 							return nil
 						},
 					},
@@ -200,6 +202,15 @@ learning-go [global options]`,
 						Usage:   "Staircase Problem",
 						Action: func(c *cli.Context) error {
 							problems.Staircase(5)
+							return nil
+						},
+					},
+					{
+						Name:    "twostrings",
+						Aliases: []string{"ts"},
+						Usage:   "Two String Problem",
+						Action: func(c *cli.Context) error {
+							problems.TwoStrings(problems.TSMajor, problems.TSMinor)
 							return nil
 						},
 					},
