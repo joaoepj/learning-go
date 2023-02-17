@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-var TSMajor, TSMinor string = "abxdefghijabcofjdedlnkdflxkvlabc", "abc"
+var TSMajor, TSMinor string = "abxdefghijabcofjdedlnkdflxkvlabc", "123"
 
 /*
 Time spent reading, thinking and typing:
@@ -50,6 +50,7 @@ func TwoStrings(s1 string, s2 string) string {
 		}
 	}
 
+	fmt.Println(match)
 	return match
 
 }

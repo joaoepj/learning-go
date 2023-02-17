@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strconv"
 
 	"github.com/joaoepj/learning-go/lg_misc"
 	problems "github.com/joaoepj/learning-go/lg_problems"
@@ -267,6 +268,19 @@ learning-go [global options]`,
 						Usage:   "Testing the Limit for File Descriptors",
 						Action: func(c *cli.Context) error {
 							lg_misc.TestFdLimit()
+							return nil
+						},
+					},
+					{
+						Name:    "randomstring",
+						Aliases: []string{"rs"},
+						Usage:   "Random String Generator",
+						Action: func(c *cli.Context) error {
+							size, err := strconv.Atoi(c.Args().First())
+							if err != nil {
+								os.Exit(1)
+							}
+							fmt.Println(lg_misc.RandomString(size))
 							return nil
 						},
 					},
