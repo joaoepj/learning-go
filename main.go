@@ -8,6 +8,7 @@ import (
 	"os"
 
 	"github.com/joaoepj/learning-go/lg_misc"
+	"github.com/joaoepj/learning-go/lg_problems"
 	problems "github.com/joaoepj/learning-go/lg_problems"
 	"github.com/urfave/cli/v2"
 )
@@ -38,6 +39,7 @@ learning-go [global options]`,
 				Aliases: []string{"p"},
 				Usage:   "Some HackerRank problem solutions implemented in golang.",
 				Subcommands: []*cli.Command{
+
 					{
 						Name:    "arraymanipulation",
 						Aliases: []string{"am"},
@@ -214,6 +216,7 @@ learning-go [global options]`,
 							return nil
 						},
 					},
+					lg_problems.SCCountSwaps,
 				}, // Closing Subcommands
 			},
 			{
@@ -270,6 +273,7 @@ learning-go [global options]`,
 							return nil
 						},
 					},
+
 					lg_misc.SCRandomString,
 					lg_misc.SCRandomIntegers,
 				},
