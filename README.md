@@ -95,3 +95,9 @@ public functions must start with capital letters
 $ go build (test if package builds)
 
 import package in other packages, build module
+
+## Tips
+
+Search for issues at Github. Go to Issues and type text below in search field.
+
+is:open is:issue archived:false language:go label:"good first issue" 
