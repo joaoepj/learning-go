@@ -49,6 +49,7 @@ var SCRandomIntegers *cli.Command = &cli.Command{
 	Action: func(c *cli.Context) error {
 		size, err := strconv.Atoi(c.Args().First())
 		if err != nil {
+			fmt.Println(err.Error())
 			os.Exit(1)
 		}
 		fmt.Println(RandomIntegers(size))

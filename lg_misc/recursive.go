@@ -1,5 +1,22 @@
 package lg_misc
 
+import (
+	"fmt"
+
+	"github.com/urfave/cli/v2"
+)
+
+var SCReverse *cli.Command = &cli.Command{
+	Name:    "reverse",
+	Aliases: []string{"rv"},
+	Usage:   "Recursive Reverse",
+	Action: func(c *cli.Context) error {
+		fmt.Print(Reverse(PopulateInt32Slice(10), []int32{}))
+
+		return nil
+	},
+}
+
 // Recursive functions in go
 
 // Reverse a slice recursively putting the last element of the input slice
