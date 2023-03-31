@@ -69,24 +69,32 @@ implementing tree using map
 
 */
 
+func test3() Tree {
+	tree := Tree{"a": nil}
+	tree["b"] = nil
+	//override nodes a and b
+	//tree = Tree{"c": nil}
+	return tree
+}
+
 type Tree map[string]Tree
 
 func main() {
-	test2()
+	//test2()
 
-	tree := Tree{
-		"root": Tree{
-			"sibiling1": Tree{
-				"child4": nil,
-			},
-			"sibiling2": Tree{
-				"child4": nil,
-			},
-			"sibiling3": Tree{
-				"child4": nil,
-			},
-		},
-	}
-
-	fmt.Printf("%#v\n", tree)
+	/* 	tree := Tree{
+	   		"root": Tree{
+	   			"sibiling1": Tree{
+	   				"child4": nil,
+	   			},
+	   			"sibiling2": Tree{
+	   				"child4": nil,
+	   			},
+	   			"sibiling3": Tree{
+	   				"child4": nil,
+	   			},
+	   		},
+	   	}
+	*/
+	fmt.Printf("%v\n", test3())
 }
