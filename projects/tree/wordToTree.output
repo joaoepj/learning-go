@@ -1,0 +1,37 @@
+dev-joao:/home/learning-go/projects/tree # go run wordToTree.go
+wordToTree.go:27: wordTobranch map[root:map[]] a
+wordToTree.go:29: wordsTotree map[root:map[a:map[]]] [the their]
+wordToTree.go:27: wordTobranch map[root:map[a:map[]]] the
+wordToTree.go:29: wordsTotree map[root:map[t:map[h:map[e:map[]]]]] [their]
+wordToTree.go:27: wordTobranch map[root:map[t:map[h:map[e:map[]]]]] their
+wordToTree.go:29: wordsTotree map[root:map[t:map[h:map[e:map[i:map[r:map[]]]]]]] []
+wordToTree.go:27: wordTobranch map[root:map[t:map[h:map[e:map[i:map[r:map[]]]]]]] their
+wordToTree.go:29: wordsTotree map[root:map[t:map[h:map[e:map[i:map[r:map[]]]]]]] [their]
+wordToTree.go:27: wordTobranch map[root:map[t:map[h:map[e:map[i:map[r:map[]]]]]]] their
+wordToTree.go:29: wordsTotree map[root:map[t:map[h:map[e:map[i:map[r:map[]]]]]]] []
+wordToTree.go:27: wordTobranch map[root:map[t:map[h:map[e:map[i:map[r:map[]]]]]]] the
+wordToTree.go:29: wordsTotree map[root:map[t:map[h:map[e:map[]]]]] [the their]
+wordToTree.go:27: wordTobranch map[root:map[t:map[h:map[e:map[]]]]] the
+wordToTree.go:29: wordsTotree map[root:map[t:map[h:map[e:map[]]]]] [their]
+wordToTree.go:27: wordTobranch map[root:map[t:map[h:map[e:map[]]]]] their
+wordToTree.go:29: wordsTotree map[root:map[t:map[h:map[e:map[i:map[r:map[]]]]]]] []
+wordToTree.go:27: wordTobranch map[root:map[t:map[h:map[e:map[i:map[r:map[]]]]]]] their
+wordToTree.go:29: wordsTotree map[root:map[t:map[h:map[e:map[i:map[r:map[]]]]]]] [their]
+wordToTree.go:27: wordTobranch map[root:map[t:map[h:map[e:map[i:map[r:map[]]]]]]] their
+wordToTree.go:29: wordsTotree map[root:map[t:map[h:map[e:map[i:map[r:map[]]]]]]] []
+wordToTree.go:27: wordTobranch map[root:map[t:map[h:map[e:map[i:map[r:map[]]]]]]] their
+wordToTree.go:29: wordsTotree map[root:map[t:map[h:map[e:map[i:map[r:map[]]]]]]] [the their]
+wordToTree.go:27: wordTobranch map[root:map[t:map[h:map[e:map[i:map[r:map[]]]]]]] the
+wordToTree.go:29: wordsTotree map[root:map[t:map[h:map[e:map[]]]]] [their]
+wordToTree.go:27: wordTobranch map[root:map[t:map[h:map[e:map[]]]]] their
+wordToTree.go:29: wordsTotree map[root:map[t:map[h:map[e:map[i:map[r:map[]]]]]]] []
+wordToTree.go:27: wordTobranch map[root:map[t:map[h:map[e:map[i:map[r:map[]]]]]]] their
+wordToTree.go:29: wordsTotree map[root:map[t:map[h:map[e:map[i:map[r:map[]]]]]]] [their]
+wordToTree.go:27: wordTobranch map[root:map[t:map[h:map[e:map[i:map[r:map[]]]]]]] their
+wordToTree.go:29: wordsTotree map[root:map[t:map[h:map[e:map[i:map[r:map[]]]]]]] []
+wordToTree.go:18: map[root:map[t:map[h:map[e:map[i:map[r:map[]]]]]]]
+t
+h
+e
+i
+r
