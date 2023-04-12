@@ -6,13 +6,15 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
-var SCReverse *cli.Command = &cli.Command{
-	Name:    "reverse",
-	Aliases: []string{"rv"},
-	Usage:   "Recursive Reverse",
+var SCRecursive *cli.Command = &cli.Command{
+	Name:    "recursive",
+	Aliases: []string{"rc"},
+	Usage:   "Recursive Functions",
 	Action: func(c *cli.Context) error {
-		fmt.Print(Reverse(PopulateInt32Slice(10), []int32{}))
-
+		fmt.Println("Reverse: ", Reverse(PopulateInt32Slice(10), []int32{}))
+		fmt.Println("Direct: ", Direct(PopulateInt32Slice(10), []int32{}))
+		fmt.Println("Operator: ", Operator(10))
+		fmt.Println("Operator2: ", Operator2(PopulateInt32Slice(10)))
 		return nil
 	},
 }

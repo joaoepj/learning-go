@@ -1,5 +1,23 @@
 package lg_misc
 
+import (
+	"fmt"
+
+	"github.com/urfave/cli/v2"
+)
+
+var SCSorting *cli.Command = &cli.Command{
+	Name:    "sorting",
+	Aliases: []string{"st"},
+	Usage:   "Sorting Functions",
+	Action: func(c *cli.Context) error {
+		fmt.Println("SelectionSort: ", SelectionSort(RandomIntegers32(10)))
+		fmt.Println("InsertionSort: ", InsertionSort(RandomIntegers32(10)))
+		return nil
+	},
+}
+
+// not working
 func SelectionSort(a []int32) []int32 {
 	var m int32
 	// traverse the array reward (from last to first)

@@ -59,9 +59,17 @@ var SCRandomIntegers *cli.Command = &cli.Command{
 }
 
 func RandomIntegers(size int) []int {
-	integers := make([]int, 0)
+	integers := make([]int, 0, size)
 	for i := 0; i < size; i++ {
 		integers = append(integers, rand.Intn(255))
+	}
+	return integers
+}
+
+func RandomIntegers32(size int) []int32 {
+	integers := make([]int32, 0, size)
+	for i := 0; i < size; i++ {
+		integers = append(integers, rand.Int31n(255))
 	}
 	return integers
 }
