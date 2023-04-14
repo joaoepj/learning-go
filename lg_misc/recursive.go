@@ -15,6 +15,8 @@ var SCRecursive *cli.Command = &cli.Command{
 		fmt.Println("Direct: ", Direct(PopulateInt32Slice(10), []int32{}))
 		fmt.Println("Operator: ", Operator(10))
 		fmt.Println("Operator2: ", Operator2(PopulateInt32Slice(10)))
+		fmt.Println("PopulateInt32Slice: ", PopulateInt32Slice(10))
+		fmt.Println("PopulateInt32SliceRec: ", PopulateInt32SliceRec(10, []int32{}))
 		return nil
 	},
 }
@@ -49,10 +51,13 @@ func Direct(x []int32, acc []int32) []int32 {
 	}
 }
 
-// Apply the function recursively as an operator between list elements
+// Apply the function recursively with an operator between a numer and its predecessor
+// earlier function version tests if x equals 1 as stop condition
+// This is a security risk as it allows one to pass a negative number
+// which throws stack overflow error
 func Operator(x int32) int32 {
 	//stop condition
-	if x == 1 {
+	if x <= 1 {
 		return 1
 	} else {
 		return x + Operator(x-1)
@@ -65,7 +70,7 @@ func Operator2(x []int32) int32 {
 	if len(x) == 1 {
 		return x[0]
 	} else {
-		return x[0] + Operator2(x[1:len(x)])
+		return x[0] + Operator2(x[1:])
 	}
 
 }
@@ -76,4 +81,13 @@ func PopulateInt32Slice(n int32) []int32 {
 		result[i] = i + 1
 	}
 	return result
+}
+
+// recursive version
+func PopulateInt32SliceRec(n int32, acc []int32) []int32 {
+	if int(n)-len(acc) == 0 {
+		return acc
+	}
+	acc = append(acc, int32(len(acc))+1)
+	return PopulateInt32SliceRec(n, acc)
 }

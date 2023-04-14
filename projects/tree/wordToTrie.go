@@ -1,63 +1,118 @@
 package main
 
 import (
+	"fmt"
 	"log"
 )
 
+// Trie node state
+type State byte
+
+const (
+	Undiscovered State = iota
+	Discovered
+	Processed
+)
+
 type Trie struct {
-	letter map[string]Trie
+	childs map[string]Trie
 	end    bool
+	State
 }
 
-func wordToBranch(t Trie, s string) {
+// WordToBranch takes a word and builds a trie branch
+// First letter is root's child and last letter is trie's leaf
+func WordToBranch(t *Trie, s string) {
 	// halt condition
 	if len(s) == 0 {
 		return
 	}
 
-	child, ok := t.letter[string(s[0])]
+	// useless if Undiscovered is zero value
+	t.State = Undiscovered
+	child, ok := t.childs[string(s[0])]
 	// end of word
-	if len(s) == 1 {
-		child.end = true
-	}
 
 	if !ok {
 		// child becomes t in the next recursive call
-		// if it is new compiler throws:
+		// if it is nil compiler throws:
 		// assigment to entry in nil map error
-		child.letter = make(map[string]Trie)
-		t.letter[string(s[0])] = child
+		child.childs = make(map[string]Trie)
+		if len(s) == 1 {
+			child.end = true
+		}
+		// useless if Undiscovered is zero value
+		child.State = Undiscovered
+		t.childs[string(s[0])] = child
+
 	}
 	// recursive call
-	wordToBranch(child, s[1:])
+	WordToBranch(&child, s[1:])
 }
 
-func wordsToTrie(t Trie, sl []string) {
+// WordsToTrie takes a word list
+// Each time it call WordToBranch it passes a word to it
+// Each diferent word makes a different branch on trie
+func WordsToTrie(t *Trie, sl []string) {
 	if len(sl) == 0 {
 		return
 	}
-	wordToBranch(t, sl[0])
-	wordsToTrie(t, sl[1:])
+	WordToBranch(t, sl[0])
+	WordsToTrie(t, sl[1:])
 }
 
 func extractWord(t Trie, s string) string {
 	if t.end == true {
 		return s
 	}
-	for letter, child := range t.letter {
-		return s + extractWord(child, letter)
+	for childs, child := range t.childs {
+		return s + extractWord(child, childs)
+	}
+	return s
+}
+
+func dfs(t *Trie, stack *[]*Trie, s string) []string {
+	var sl []string
+
+	t.State = Discovered
+
+	if t.end == true {
+		// TODO: append the word into a string list
+		t.State = Processed
+		log.Println("Trie:\t", *t)
+		log.Println("Stack:", stack)
+		fmt.Println("-------------------------------------------")
+		sl = append(sl, s)
+		*stack = (*stack)[:len(*stack)-1]
+		// Easy, very dangerous
+		//dfs((*stack)[len(*stack)-1], stack, s)
 	}
 
-	return s
-
+	// push into stack
+	*stack = append(*stack, t)
+	for str, trie := range t.childs {
+		if trie.State == Undiscovered {
+			sl = append(sl, dfs(&trie, stack, s+str)...)
+			log.Println("Trie:\t", *t)
+			log.Println("Stack:", stack)
+			fmt.Println("-------------------------------------------")
+		}
+	}
+	return sl
 }
 
 func main() {
-	// initialize map
-	letter := make(map[string]Trie)
-	trie := Trie{letter: letter, end: false}
-	wordsToTrie(trie, []string{"abacaxi", "abacaxa", "babacaxe"})
-	log.Println(trie)
-	log.Println(extractWord(trie, ""))
 
+	log.SetFlags(log.Lshortfile)
+	// initialize map
+	stack := make([]*Trie, 10)
+	childs := make(map[string]Trie)
+	trie := Trie{childs: childs, end: false, State: Undiscovered}
+	//WordsToTrie(&trie, []string{"abacaxi", "abacaxa", "babacaxe"})
+	WordsToTrie(&trie, []string{"ab", "abc"})
+	log.Println("pos WordsToTrie:", trie)
+	//log.Println(extractWord(trie, ""))
+	log.Println(dfs(&trie, &stack, ""))
+	log.Println("pos dfs:", trie)
+	log.Println(len(stack))
 }
