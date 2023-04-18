@@ -1,0 +1,129 @@
+go run wordToTrie.go
+wordToTrie.go:122: after WordsToTrie: {map[a:{map[b:{map[a:{map[c:{map[a:{map[x:{map[a:{map[] true 0} i:{map[] true 0}] false 0}] false 0}] false 0}] false 0}] false 0}] false 0} b:{map[a:{map[b:{map[a:{map[c:{map[a:{map[x:{map[e:{map[] true 0}] false 0}] false 0}] false 0}] false 0}] false 0}] false 0}] false 0}] false 0}
+wordToTrie.go:98: recursive
+wordToTrie.go:99: sl: [] s:  str: a Trie:        {map[b:{map[a:{map[c:{map[a:{map[x:{map[a:{map[] true 0} i:{map[] true 0}] false 0}] false 0}] false 0}] false 0}] false 0}] false 0}
+wordToTrie.go:100: Stack: &[0xc00010c210]
+wordToTrie.go:101: -------------------------------------------
+wordToTrie.go:98: recursive
+wordToTrie.go:99: sl: [] s: a str: b Trie:       {map[a:{map[c:{map[a:{map[x:{map[a:{map[] true 0} i:{map[] true 0}] false 0}] false 0}] false 0}] false 0}] false 0}
+wordToTrie.go:100: Stack: &[0xc00010c210 0xc00010c430]
+wordToTrie.go:101: -------------------------------------------
+wordToTrie.go:98: recursive
+wordToTrie.go:99: sl: [] s: ab str: a Trie:      {map[c:{map[a:{map[x:{map[a:{map[] true 0} i:{map[] true 0}] false 0}] false 0}] false 0}] false 0}
+wordToTrie.go:100: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550]
+wordToTrie.go:101: -------------------------------------------
+wordToTrie.go:98: recursive
+wordToTrie.go:99: sl: [] s: aba str: c Trie:     {map[a:{map[x:{map[a:{map[] true 0} i:{map[] true 0}] false 0}] false 0}] false 0}
+wordToTrie.go:100: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650]
+wordToTrie.go:101: -------------------------------------------
+wordToTrie.go:98: recursive
+wordToTrie.go:99: sl: [] s: abac str: a Trie:    {map[x:{map[a:{map[] true 0} i:{map[] true 0}] false 0}] false 0}
+wordToTrie.go:100: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730]
+wordToTrie.go:101: -------------------------------------------
+wordToTrie.go:98: recursive
+wordToTrie.go:99: sl: [] s: abaca str: x Trie:   {map[a:{map[] true 0} i:{map[] true 0}] false 0}
+wordToTrie.go:100: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0]
+wordToTrie.go:101: -------------------------------------------
+wordToTrie.go:98: recursive
+wordToTrie.go:99: sl: [] s: abacax str: i Trie:  {map[] true 0}
+wordToTrie.go:100: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c890]
+wordToTrie.go:101: -------------------------------------------
+wordToTrie.go:82: final
+wordToTrie.go:83: s abacaxi Trie:        {map[] true 2}
+wordToTrie.go:84: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0]
+wordToTrie.go:85: -------------------------------------------
+wordToTrie.go:104: sl: [abacaxi] s: abacax str: i Trie:  {map[] true 1}
+wordToTrie.go:105: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910]
+wordToTrie.go:106: -------------------------------------------
+wordToTrie.go:98: recursive
+wordToTrie.go:99: sl: [abacaxi] s: abacax str: a Trie:   {map[] true 0}
+wordToTrie.go:100: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910]
+wordToTrie.go:101: -------------------------------------------
+wordToTrie.go:82: final
+wordToTrie.go:83: s abacaxa Trie:        {map[] true 2}
+wordToTrie.go:84: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0]
+wordToTrie.go:85: -------------------------------------------
+wordToTrie.go:104: sl: [abacaxi abacaxa] s: abacax str: a Trie:  {map[] true 1}
+wordToTrie.go:105: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910]
+wordToTrie.go:106: -------------------------------------------
+wordToTrie.go:104: sl: [abacaxi abacaxa] s: abaca str: x Trie:   {map[a:{map[] true 0} i:{map[] true 0}] false 1}
+wordToTrie.go:105: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910]
+wordToTrie.go:106: -------------------------------------------
+wordToTrie.go:104: sl: [abacaxi abacaxa] s: abac str: a Trie:    {map[x:{map[a:{map[] true 0} i:{map[] true 0}] false 0}] false 1}
+wordToTrie.go:105: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910]
+wordToTrie.go:106: -------------------------------------------
+wordToTrie.go:104: sl: [abacaxi abacaxa] s: aba str: c Trie:     {map[a:{map[x:{map[a:{map[] true 0} i:{map[] true 0}] false 0}] false 0}] false 1}
+wordToTrie.go:105: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910]
+wordToTrie.go:106: -------------------------------------------
+wordToTrie.go:104: sl: [abacaxi abacaxa] s: ab str: a Trie:      {map[c:{map[a:{map[x:{map[a:{map[] true 0} i:{map[] true 0}] false 0}] false 0}] false 0}] false 1}
+wordToTrie.go:105: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910]
+wordToTrie.go:106: -------------------------------------------
+wordToTrie.go:104: sl: [abacaxi abacaxa] s: a str: b Trie:       {map[a:{map[c:{map[a:{map[x:{map[a:{map[] true 0} i:{map[] true 0}] false 0}] false 0}] false 0}] false 0}] false 1}
+wordToTrie.go:105: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910]
+wordToTrie.go:106: -------------------------------------------
+wordToTrie.go:104: sl: [abacaxi abacaxa] s:  str: a Trie:        {map[b:{map[a:{map[c:{map[a:{map[x:{map[a:{map[] true 0} i:{map[] true 0}] false 0}] false 0}] false 0}] false 0}] false 0}] false 1}
+wordToTrie.go:105: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910]
+wordToTrie.go:106: -------------------------------------------
+wordToTrie.go:98: recursive
+wordToTrie.go:99: sl: [abacaxi abacaxa] s:  str: b Trie:         {map[a:{map[b:{map[a:{map[c:{map[a:{map[x:{map[e:{map[] true 0}] false 0}] false 0}] false 0}] false 0}] false 0}] false 0}] false 0}
+wordToTrie.go:100: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910]
+wordToTrie.go:101: -------------------------------------------
+wordToTrie.go:98: recursive
+wordToTrie.go:99: sl: [] s: b str: a Trie:       {map[b:{map[a:{map[c:{map[a:{map[x:{map[e:{map[] true 0}] false 0}] false 0}] false 0}] false 0}] false 0}] false 0}
+wordToTrie.go:100: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910 0xc00010c430]
+wordToTrie.go:101: -------------------------------------------
+wordToTrie.go:98: recursive
+wordToTrie.go:99: sl: [] s: ba str: b Trie:      {map[a:{map[c:{map[a:{map[x:{map[e:{map[] true 0}] false 0}] false 0}] false 0}] false 0}] false 0}
+wordToTrie.go:100: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910 0xc00010c430 0xc00010d100]
+wordToTrie.go:101: -------------------------------------------
+wordToTrie.go:98: recursive
+wordToTrie.go:99: sl: [] s: bab str: a Trie:     {map[c:{map[a:{map[x:{map[e:{map[] true 0}] false 0}] false 0}] false 0}] false 0}
+wordToTrie.go:100: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910 0xc00010c430 0xc00010d100 0xc00010d200]
+wordToTrie.go:101: -------------------------------------------
+wordToTrie.go:98: recursive
+wordToTrie.go:99: sl: [] s: baba str: c Trie:    {map[a:{map[x:{map[e:{map[] true 0}] false 0}] false 0}] false 0}
+wordToTrie.go:100: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910 0xc00010c430 0xc00010d100 0xc00010d200 0xc00010d2e0]
+wordToTrie.go:101: -------------------------------------------
+wordToTrie.go:98: recursive
+wordToTrie.go:99: sl: [] s: babac str: a Trie:   {map[x:{map[e:{map[] true 0}] false 0}] false 0}
+wordToTrie.go:100: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910 0xc00010c430 0xc00010d100 0xc00010d200 0xc00010d2e0 0xc00010d3a0]
+wordToTrie.go:101: -------------------------------------------
+wordToTrie.go:98: recursive
+wordToTrie.go:99: sl: [] s: babaca str: x Trie:  {map[e:{map[] true 0}] false 0}
+wordToTrie.go:100: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910 0xc00010c430 0xc00010d100 0xc00010d200 0xc00010d2e0 0xc00010d3a0 0xc00010d440]
+wordToTrie.go:101: -------------------------------------------
+wordToTrie.go:98: recursive
+wordToTrie.go:99: sl: [] s: babacax str: e Trie:         {map[] true 0}
+wordToTrie.go:100: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910 0xc00010c430 0xc00010d100 0xc00010d200 0xc00010d2e0 0xc00010d3a0 0xc00010d440 0xc00010d4c0]
+wordToTrie.go:101: -------------------------------------------
+wordToTrie.go:82: final
+wordToTrie.go:83: s babacaxe Trie:       {map[] true 2}
+wordToTrie.go:84: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910 0xc00010c430 0xc00010d100 0xc00010d200 0xc00010d2e0 0xc00010d3a0 0xc00010d440]
+wordToTrie.go:85: -------------------------------------------
+wordToTrie.go:104: sl: [babacaxe] s: babacax str: e Trie:        {map[] true 1}
+wordToTrie.go:105: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910 0xc00010c430 0xc00010d100 0xc00010d200 0xc00010d2e0 0xc00010d3a0 0xc00010d440 0xc00010d520]
+wordToTrie.go:106: -------------------------------------------
+wordToTrie.go:104: sl: [babacaxe] s: babaca str: x Trie:         {map[e:{map[] true 0}] false 1}
+wordToTrie.go:105: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910 0xc00010c430 0xc00010d100 0xc00010d200 0xc00010d2e0 0xc00010d3a0 0xc00010d440 0xc00010d520]
+wordToTrie.go:106: -------------------------------------------
+wordToTrie.go:104: sl: [babacaxe] s: babac str: a Trie:  {map[x:{map[e:{map[] true 0}] false 0}] false 1}
+wordToTrie.go:105: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910 0xc00010c430 0xc00010d100 0xc00010d200 0xc00010d2e0 0xc00010d3a0 0xc00010d440 0xc00010d520]
+wordToTrie.go:106: -------------------------------------------
+wordToTrie.go:104: sl: [babacaxe] s: baba str: c Trie:   {map[a:{map[x:{map[e:{map[] true 0}] false 0}] false 0}] false 1}
+wordToTrie.go:105: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910 0xc00010c430 0xc00010d100 0xc00010d200 0xc00010d2e0 0xc00010d3a0 0xc00010d440 0xc00010d520]
+wordToTrie.go:106: -------------------------------------------
+wordToTrie.go:104: sl: [babacaxe] s: bab str: a Trie:    {map[c:{map[a:{map[x:{map[e:{map[] true 0}] false 0}] false 0}] false 0}] false 1}
+wordToTrie.go:105: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910 0xc00010c430 0xc00010d100 0xc00010d200 0xc00010d2e0 0xc00010d3a0 0xc00010d440 0xc00010d520]
+wordToTrie.go:106: -------------------------------------------
+wordToTrie.go:104: sl: [babacaxe] s: ba str: b Trie:     {map[a:{map[c:{map[a:{map[x:{map[e:{map[] true 0}] false 0}] false 0}] false 0}] false 0}] false 1}
+wordToTrie.go:105: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910 0xc00010c430 0xc00010d100 0xc00010d200 0xc00010d2e0 0xc00010d3a0 0xc00010d440 0xc00010d520]
+wordToTrie.go:106: -------------------------------------------
+wordToTrie.go:104: sl: [babacaxe] s: b str: a Trie:      {map[b:{map[a:{map[c:{map[a:{map[x:{map[e:{map[] true 0}] false 0}] false 0}] false 0}] false 0}] false 0}] false 1}
+wordToTrie.go:105: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910 0xc00010c430 0xc00010d100 0xc00010d200 0xc00010d2e0 0xc00010d3a0 0xc00010d440 0xc00010d520]
+wordToTrie.go:106: -------------------------------------------
+wordToTrie.go:104: sl: [abacaxi abacaxa babacaxe] s:  str: b Trie:       {map[a:{map[b:{map[a:{map[c:{map[a:{map[x:{map[e:{map[] true 0}] false 0}] false 0}] false 0}] false 0}] false 0}] false 0}] false 1}
+wordToTrie.go:105: Stack: &[0xc00010c210 0xc00010c430 0xc00010c550 0xc00010c650 0xc00010c730 0xc00010c7f0 0xc00010c910 0xc00010c430 0xc00010d100 0xc00010d200 0xc00010d2e0 0xc00010d3a0 0xc00010d440 0xc00010d520]
+wordToTrie.go:106: -------------------------------------------
+wordToTrie.go:125: after dfs: {map[a:{map[b:{map[a:{map[c:{map[a:{map[x:{map[a:{map[] true 0} i:{map[] true 0}] false 0}] false 0}] false 0}] false 0}] false 0}] false 0} b:{map[a:{map[b:{map[a:{map[c:{map[a:{map[x:{map[e:{map[] true 0}] false 0}] false 0}] false 0}] false 0}] false 0}] false 0}] false 0}] false 1}
+wordToTrie.go:126: 14
+[abacaxi abacaxa babacaxe]

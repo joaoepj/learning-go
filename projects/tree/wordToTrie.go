@@ -74,45 +74,65 @@ func extractWord(t Trie, s string) string {
 func dfs(t *Trie, stack *[]*Trie, s string) []string {
 	var sl []string
 
-	t.State = Discovered
-
 	if t.end == true {
 		// TODO: append the word into a string list
 		t.State = Processed
-		log.Println("Trie:\t", *t)
-		log.Println("Stack:", stack)
-		fmt.Println("-------------------------------------------")
-		sl = append(sl, s)
+
 		*stack = (*stack)[:len(*stack)-1]
+		log.Println("final")
+		log.Println("s", s, "Trie:\t", *t)
+		log.Println("Stack:", stack)
+		log.Println("-------------------------------------------")
+
+		sl = append(sl, s)
 		// Easy, very dangerous
 		//dfs((*stack)[len(*stack)-1], stack, s)
 	}
 
+	t.State = Discovered
 	// push into stack
 	*stack = append(*stack, t)
 	for str, trie := range t.childs {
 		if trie.State == Undiscovered {
-			sl = append(sl, dfs(&trie, stack, s+str)...)
-			log.Println("Trie:\t", *t)
+			//sl = append(sl, dfs(&trie, stack, s+str)...)
+			log.Println("recursive")
+			log.Println("sl:", sl, "s:", s, "str:", str, "Trie:\t", trie)
 			log.Println("Stack:", stack)
-			fmt.Println("-------------------------------------------")
+			log.Println("-------------------------------------------")
+			sl = append(sl, dfs(&trie, stack, s+str)...)
+
+			log.Println("sl:", sl, "s:", s, "str:", str, "Trie:\t", trie)
+			log.Println("Stack:", stack)
+			log.Println("-------------------------------------------")
 		}
 	}
 	return sl
 }
 
-func main() {
+func deepestBranch() {
+	i := 0
+	fmt.Println(i)
+	i++
+	deepestBranch()
+}
 
+func oldmain() {
+
+	//log.SetOutput(ioutil.Discard)
 	log.SetFlags(log.Lshortfile)
 	// initialize map
-	stack := make([]*Trie, 10)
+	stack := make([]*Trie, 0)
 	childs := make(map[string]Trie)
 	trie := Trie{childs: childs, end: false, State: Undiscovered}
-	//WordsToTrie(&trie, []string{"abacaxi", "abacaxa", "babacaxe"})
-	WordsToTrie(&trie, []string{"ab", "abc"})
-	log.Println("pos WordsToTrie:", trie)
+	WordsToTrie(&trie, []string{"abacaxi", "abacaxa", "babacaxe"})
+	//WordsToTrie(&trie, []string{"ab", "abc"})
+	log.Println("after WordsToTrie:", trie)
 	//log.Println(extractWord(trie, ""))
-	log.Println(dfs(&trie, &stack, ""))
-	log.Println("pos dfs:", trie)
+	fmt.Println(dfs(&trie, &stack, ""))
+	log.Println("after dfs:", trie)
 	log.Println(len(stack))
+}
+
+func main() {
+	deepestBranch()
 }
