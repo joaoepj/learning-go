@@ -40,7 +40,7 @@ func recArrayManip(queries [][]int32, acc []int64) int64 {
 		return acc[len(acc)-1]
 	}
 
-	for i := queries[0][0]; i <= queries[0][1]; i++ {
+	for i := queries[0][0]; i < queries[0][1]; i++ {
 		acc[i] += int64(queries[0][2])
 	}
 
@@ -69,5 +69,5 @@ func sort(li []int64) []int64 {
 }
 
 func main() {
-	fmt.Println(ArrayManipulation(10, arrayManipulationSample2))
+	fmt.Println(ArrayManipulation(5, arrayManipulationSample2))
 }
