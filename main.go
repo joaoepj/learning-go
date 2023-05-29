@@ -46,7 +46,7 @@ learning-go [global options]`,
 						Usage:   "Array Manipulation Problem",
 						Action: func(c *cli.Context) error {
 							for _, arr := range problems.ArrayManipulation_arr {
-								problems.ArrayManipulation(10, arr)
+								fmt.Println(problems.ArrayManipulation(10, arr))
 							}
 							return nil
 						},

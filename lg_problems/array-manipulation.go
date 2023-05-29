@@ -5,6 +5,12 @@ import (
 	"log"
 )
 
+type ManipulationInfo struct {
+	Min     int32
+	Max     int32
+	queries [][]int32
+}
+
 var ArrayManipulation_arr = [][][]int32{
 	{
 		{1, 5, 3},
@@ -31,6 +37,102 @@ type tuple struct {
 }
 
 func ArrayManipulation(n int32, queries [][]int32) int64 {
+	accumulator := make([]int64, n)
+	debug("ArrayManipulation ...", accumulator)
+	manipulationInfo := optimizeSearch(queries)
+	return recArrayManip(manipulationInfo, accumulator)
+}
+
+func recArrayManip(mi ManipulationInfo, acc []int64) int64 {
+	if len(mi.queries) == 1 {
+		for i := mi.queries[0][0]; i <= mi.queries[0][1]; i++ {
+			acc[i-1] += int64(mi.queries[0][2])
+		}
+		debug("recArrayManip sorting ...", acc)
+		sort(acc)
+		debug("recArrayManip sorted ...", acc)
+		return acc[len(acc)-1]
+	}
+
+	for i := mi.queries[0][0]; i <= mi.queries[0][1]; i++ {
+		acc[i-1] += int64(mi.queries[0][2])
+	}
+
+	mi.queries = mi.queries[1:]
+	return recArrayManip(mi, acc)
+
+}
+
+func optimizeSearch(queries [][]int32) ManipulationInfo {
+	var mi ManipulationInfo
+	for i := 0; i < len(queries); i++ {
+		if queries[i][0] > mi.Min {
+			mi.Min = queries[i][0]
+		}
+	}
+
+	for i := 0; i < len(queries); i++ {
+		if queries[i][1] > mi.Max {
+			mi.Max = queries[i][1]
+		}
+	}
+
+	mi.queries = queries
+	return mi
+}
+
+func ArrayManipulation5(n int32, queries [][]int32) int64 {
+	acc := make([]int64, n)
+	debug("1", acc)
+	return recArrayManip2(queries, acc)
+}
+
+func recArrayManip2(queries [][]int32, acc []int64) int64 {
+	if len(queries) == 1 {
+		for i := queries[0][0]; i <= queries[0][1]; i++ {
+			acc[i-1] += int64(queries[0][2])
+		}
+		debug("2", acc)
+		sort(acc)
+		debug("3", acc)
+		return acc[len(acc)-1]
+	}
+
+	for i := queries[0][0]; i <= queries[0][1]; i++ {
+		acc[i-1] += int64(queries[0][2])
+	}
+
+	return recArrayManip2(queries[1:], acc)
+
+}
+
+func sort(li []int64) []int64 {
+	if len(li) == 1 {
+		return li
+	}
+
+	var outterIndex int
+	var outterGreater int64
+	for index, value := range li {
+		if value > outterGreater {
+			outterGreater = value
+			outterIndex = index
+		}
+	}
+
+	debug("sort: outterIndex, outterGreater", outterIndex, outterGreater)
+	return append(sort(append(li[:outterIndex], li[outterIndex+1:]...)), outterGreater)
+}
+
+const DEBUG = true
+
+func debug(a ...interface{}) {
+	if DEBUG {
+		fmt.Println(a...)
+	}
+}
+
+func ArrayManipulation4(n int32, queries [][]int32) int64 {
 	var result int64
 	var min, max int32 = 1<<31 - 1, 0
 	baseWeights := make(map[int64]map[int32]struct{})

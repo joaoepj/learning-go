@@ -92,11 +92,11 @@ func PopulateInt32SliceRec(n int32, acc []int32) []int32 {
 	return PopulateInt32SliceRec(n, acc)
 }
 
-func RecSort(li []int) []int {
+func sort(li []int) []int {
 	if len(li) == 0 {
 		return []int{}
 	}
-	
+
 	var gtr, io int
 	for i, v := range li {
 		if v > gtr {
@@ -107,10 +107,9 @@ func RecSort(li []int) []int {
 	return append(sort(append(li[:io], li[io+1:]...)), gtr)
 }
 
-func RecCount(n int) []int {
+func count(n int) []int {
 	if n == 0 {
 		return []int{}
 	}
 	return append([]int{n}, count(n-1)...)
 }
-

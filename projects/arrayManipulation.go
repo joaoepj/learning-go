@@ -3,23 +3,22 @@ package main
 import "fmt"
 
 var arrayManipulationSample1 = [][]int32{
-	{1,5,3},
-	{4,8,7},
-	{6,9,1},
+	{1, 5, 3},
+	{4, 8, 7},
+	{6, 9, 1},
 }
 
 var arrayManipulationSample2 = [][]int32{
-	{1,2,100},
-	{2,5,100},
-	{3,4,100},
+	{1, 2, 100},
+	{2, 5, 100},
+	{3, 4, 100},
 }
 
 const DEBUG = true
 
-
 func debug(a ...interface{}) {
 	if DEBUG {
-		fmt.Println(a)
+		fmt.Println(a...)
 	}
 }
 
@@ -34,9 +33,9 @@ func recArrayManip(queries [][]int32, acc []int64) int64 {
 		for i := queries[0][0]; i <= queries[0][1]; i++ {
 			acc[i] += int64(queries[0][2])
 		}
-		debug("2",acc)
+		debug("2", acc)
 		sort(acc)
-		debug("3",acc)
+		debug("3", acc)
 		return acc[len(acc)-1]
 	}
 
@@ -62,9 +61,9 @@ func sort(li []int64) []int64 {
 		}
 	}
 
-	debug("index",index)
-	debug("li[:index]",li[:index])
-	debug("li[index+1:]",li[index+1:])
+	debug("index", index)
+	debug("li[:index]", li[:index])
+	debug("li[index+1:]", li[index+1:])
 	return append(sort(append(li[:index], li[index+1:]...)), greater)
 }
 
