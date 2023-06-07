@@ -96,7 +96,7 @@ func RecSort(li []int) []int {
 	if len(li) == 0 {
 		return []int{}
 	}
-	
+
 	var gtr, io int
 	for i, v := range li {
 		if v > gtr {
@@ -104,13 +104,12 @@ func RecSort(li []int) []int {
 			io = i
 		}
 	}
-	return append(sort(append(li[:io], li[io+1:]...)), gtr)
+	return append(RecSort(append(li[:io], li[io+1:]...)), gtr)
 }
 
 func RecCount(n int) []int {
 	if n == 0 {
 		return []int{}
 	}
-	return append([]int{n}, count(n-1)...)
+	return append([]int{n}, RecCount(n-1)...)
 }
-
