@@ -218,6 +218,7 @@ learning-go [global options]`,
 					},
 					lg_problems.SCCountSwaps,
 					lg_problems.SCTwoSum,
+					lg_problems.SCPickingNumbers,
 				}, // Closing Subcommands
 			},
 			{
