@@ -13,8 +13,8 @@ var SCRecursive *cli.Command = &cli.Command{
 	Action: func(c *cli.Context) error {
 		fmt.Println("Reverse: ", Reverse(PopulateInt32Slice(10), []int32{}))
 		fmt.Println("Direct: ", Direct(PopulateInt32Slice(10), []int32{}))
-		fmt.Println("Operator: ", Operator(10))
-		fmt.Println("Operator2: ", Operator2(PopulateInt32Slice(10)))
+		fmt.Println("RecSumDec: ", RecSumDec(10))
+		fmt.Println("RecSumSlice: ", RecSumSlice(PopulateInt32Slice(10)))
 		fmt.Println("PopulateInt32Slice: ", PopulateInt32Slice(10))
 		fmt.Println("PopulateInt32SliceRec: ", PopulateInt32SliceRec(10, []int32{}))
 		return nil
@@ -51,26 +51,26 @@ func Direct(x []int32, acc []int32) []int32 {
 	}
 }
 
-// Apply the function recursively with an operator between a numer and its predecessor
+// Apply the function recursively with an operator between a number and its predecessor
 // earlier function version tests if x equals 1 as stop condition
 // This is a security risk as it allows one to pass a negative number
 // which throws stack overflow error
-func Operator(x int32) int32 {
+func RecSumDec(x int32) int32 {
 	//stop condition
 	if x <= 1 {
 		return 1
 	} else {
-		return x + Operator(x-1)
+		return x + RecSumDec(x-1)
 	}
 
 }
 
-func Operator2(x []int32) int32 {
+func RecSumSlice(x []int32) int32 {
 	//stop condition
 	if len(x) == 1 {
 		return x[0]
 	} else {
-		return x[0] + Operator2(x[1:])
+		return x[0] + RecSumSlice(x[1:])
 	}
 
 }

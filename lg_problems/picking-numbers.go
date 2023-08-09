@@ -26,9 +26,13 @@ var SCPickingNumbers *cli.Command = &cli.Command{
 		}  
 		
 		fmt.Println("PickingNumbers2")
-		PickingNumbers2(PickingNumbers_arr[0])
+		for _, test := range PickingNumbers_arr {
+			PickingNumbers2(test)
+		}
 		fmt.Println("PickingNumbers3")
-		PickingNumbers3(PickingNumbers_arr[0])
+		for _, test := range PickingNumbers_arr {
+			PickingNumbers3(test)
+		}
 
 		return nil
 	},
