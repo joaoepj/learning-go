@@ -12,7 +12,7 @@ make build
 
 #### Getting some help
 ```
-bin/learning-go -h
+$ bin/learning-go -h
 NAME:
    learning-go - a repository to learn the go programming language.
 
@@ -21,7 +21,7 @@ USAGE:
    learning-go [global options]
 
 VERSION:
-   main-03e4c88cd396f232d53f126f598a81dfe7c90fda
+   main-b42c6ff0533a37cf47f521903bc656e995b4ce41
 
 COMMANDS:
    problems, p  Some HackerRank problem solutions implemented in golang.
@@ -33,9 +33,10 @@ GLOBAL OPTIONS:
    --version, -v  print the version (default: false)
 ```
 
-#### Running a problem
+
+#### Listing problems
 ```
-bin/learning-go p
+$ bin/learning-go p
 NAME:
    learning-go problems - Some HackerRank problem solutions implemented in golang.
 
@@ -63,32 +64,40 @@ COMMANDS:
    twostrings, ts            Two String Problem
    countswaps, cs            Count Swaps Problem
    twosum, tw                Two Sum Problem
+   pickingnumbers, pn        Picking Numbers Problem
    help, h                   Shows a list of commands or help for one command
 
 OPTIONS:
    --help, -h  show help (default: false)
 ```
 
+#### Running a problem
 ```
-bin/learning-go p ms2
-minimum-swaps2.go:28: [7 2 3 4 5 6 1]
-minimum-swaps2.go:28: [7 1 3 4 5 6 2]
-minimum-swaps2.go:28: [7 1 3 2 5 6 4]
-minimum-swaps2.go:28: [7 1 3 2 4 6 5]
-minimum-swaps2.go:28: [7 1 3 2 4 5 6]
-minimum-swaps2.go:33: 5
-minimum-swaps2.go:28: [1 3 2 4 5 6 7]
-minimum-swaps2.go:28: [1 3 5 4 2 6 7]
-minimum-swaps2.go:28: [1 3 5 2 4 6 7]
-minimum-swaps2.go:33: 3
-minimum-swaps2.go:28: [2 1 3 4 5]
-minimum-swaps2.go:28: [2 3 1 4 5]
-minimum-swaps2.go:28: [2 3 4 1 5]
-minimum-swaps2.go:33: 3
-minimum-swaps2.go:28: [4 2 3 1]
-minimum-swaps2.go:28: [4 3 2 1]
-minimum-swaps2.go:28: [4 3 1 2]
-minimum-swaps2.go:33: 3
+$ bin/learning-go p pn
+PickingNumbers1
+0
+0
+PickingNumbers2
+sbl:  [1 2 2 1]
+sbl:  [4 5]
+PickingNumbers3
+map[4:[4 5 3 3 1]]
+map[4:[4 5 3 3 1] 6:[6 5 3 3 1]]
+map[4:[4 5 3 3 1] 5:[5 3 3 1] 6:[6 5 3 3 1]]
+map[3:[3 3 1] 4:[4 5 3 3 1] 5:[5 3 3 1] 6:[6 5 3 3 1]]
+map[3:[3 3 1] 4:[4 5 3 3 1] 5:[5 3 3 1] 6:[6 5 3 3 1]]
+map[1:[1] 3:[3 3 1] 4:[4 5 3 3 1] 5:[5 3 3 1] 6:[6 5 3 3 1]]
+5
+map[1:[1 1 2 2]]
+map[1:[1 1 2 2]]
+map[1:[1 1 2 2] 2:[2 2]]
+map[1:[1 1 2 2] 2:[2 2]]
+map[1:[1 1 2 2] 2:[2 2] 4:[4 4 5 5 5]]
+map[1:[1 1 2 2] 2:[2 2] 4:[4 4 5 5 5]]
+map[1:[1 1 2 2] 2:[2 2] 4:[4 4 5 5 5] 5:[5 5 5]]
+map[1:[1 1 2 2] 2:[2 2] 4:[4 4 5 5 5] 5:[5 5 5]]
+map[1:[1 1 2 2] 2:[2 2] 4:[4 4 5 5 5] 5:[5 5 5]]
+5
 ```
 
 
@@ -120,7 +129,26 @@ git commit -m "commit message"
 git push
 
 
+## How to add package
+
+learning-go module is comprised of golang packages lg_misc and lg_problems. This section explains how to add packages.
+
+$ mkdir lg_newpackage
+
+$ cd lg_newpackage
+
+... write code
+
+public functions must start with capital letters
+
+$ go build (test if package builds)
+
+import package in other packages, build module
+
 ## How to add a module
+
+learning-go its a golang module itself. So that you don't need to add modules to it. But in case you are curious about how to create a golang module, 
+
 $ mkdir learning-go
 
 $ cd learning-go
@@ -136,22 +164,10 @@ How to output the executable to build/bin when issuing `go build`?
 Set GOBIN environment variable
 
 
-## How to add package
-
-$ mkdir lg_snmp
-
-$ cd lg_snmp
-
-... write code
-
-public functions must start with capital letters
-
-$ go build (test if package builds)
-
-import package in other packages, build module
-
 ## Tips
 
 Search for issues at Github. Go to Issues and type text below in search field.
 
 is:open is:issue archived:false language:go label:"good first issue" 
+
+
