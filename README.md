@@ -101,7 +101,7 @@ map[1:[1 1 2 2] 2:[2 2] 4:[4 4 5 5 5] 5:[5 5 5]]
 ```
 
 
-## How to test the code
+#### How to test the code
 ```
 make test
 ```
@@ -114,7 +114,7 @@ make verbose_test
 Golang provides the "testing" package if you need to speed up the writing of your unit tests.
 After you write test functions just call go-test tool and it will find and run yout test code. I have provided a Makefile just to document some usefull go tool commands you can use to test your code.
 
-## How to add code to git repo
+#### How to add code to git repo
 
 create or modify file
 
@@ -129,7 +129,7 @@ git commit -m "commit message"
 git push
 
 
-## How to add package
+#### How to add package
 
 learning-go module is comprised of golang packages lg_misc and lg_problems. This section explains how to add packages.
 
@@ -145,7 +145,7 @@ $ go build (test if package builds)
 
 import package in other packages, build module
 
-## How to add a module
+#### How to add a module
 
 learning-go its a golang module itself. So that you don't need to add modules to it. But in case you are curious about how to create a golang module, 
 
@@ -164,10 +164,36 @@ How to output the executable to build/bin when issuing `go build`?
 Set GOBIN environment variable
 
 
-## Tips
+#### Tips
 
 Search for issues at Github. Go to Issues and type text below in search field.
 
 is:open is:issue archived:false language:go label:"good first issue" 
 
 
+#### How to debug
+
+* Install Go language support extension into Visual Studio
+* Add a Launch Configurantion File (usually it lives at /home/learning-go/.vscode/launch.json, see content example below)
+* Set the breakpoints, launch code, explore variables, have fun
+
+```
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "Launch file",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "/home/learning-go/main.go",
+            "args": ["a", "dp"]
+        },
+
+    ]
+}
+```

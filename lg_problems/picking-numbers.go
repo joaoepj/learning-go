@@ -3,12 +3,12 @@ package lg_problems
 import (
 	"fmt"
 
-	"github.com/urfave/cli/v2"
 	"github.com/joaoepj/learning-go/lg_misc"
+	"github.com/urfave/cli/v2"
 )
 
 var PickingNumbers_arr = [][]int32{
-	{4,6,5,3,3,1},
+	{4, 6, 5, 3, 3, 1},
 	{1, 1, 2, 2, 4, 4, 5, 5, 5},
 }
 
@@ -23,8 +23,8 @@ var SCPickingNumbers *cli.Command = &cli.Command{
 		fmt.Println("PickingNumbers1")
 		for _, test := range PickingNumbers_arr {
 			PickingNumbers1(test)
-		}  
-		
+		}
+
 		fmt.Println("PickingNumbers2")
 		for _, test := range PickingNumbers_arr {
 			PickingNumbers2(test)
@@ -40,39 +40,36 @@ var SCPickingNumbers *cli.Command = &cli.Command{
 
 // third submission, a year later
 func PickingNumbers3(a []int32) int32 {
-    // Write your code here
-		
-    var subArrayMap map[int32][]int32
-	subArrayMap = make(map[int32][]int32) 
-    // 1. you should traverse the 'a' array and
-    // build the greatest array you can
-    // 2. Return the lenght of builded array
-    for i := 0; i < len(a); i++ {
+	// Write your code here
+
+	var subArrayMap map[int32][]int32
+	subArrayMap = make(map[int32][]int32)
+	// 1. you should traverse the 'a' array and
+	// build the greatest array you can
+	// 2. Return the lenght of builded array
+	for i := 0; i < len(a); i++ {
 		sb, ok := subArrayMap[a[i]]
-		if ! ok {
+		if !ok {
 			var tmpsb []int32
 			tmpsb = append(tmpsb, a[i])
 			subArrayMap[a[i]] = tmpsb
-				
-		sb, _ = subArrayMap[a[i]]
 
-			
-			for j := i+1; j < len(a); j++ {
-				if a[j] - sb[len(sb)-1] <= 1 {
+			sb, _ = subArrayMap[a[i]]
+
+			for j := i + 1; j < len(a); j++ {
+				if a[j]-sb[len(sb)-1] <= 1 {
 					// beware, updating retrieved values will not update the map
 					// sb = append(sb, a[j])
 					subArrayMap[a[i]] = append(subArrayMap[a[i]], a[j])
 				}
 			}
 
-		
 		}
-		 
-			
+
 		_ = sb
-		
-        fmt.Println(subArrayMap)
-    }
+
+		fmt.Println(subArrayMap)
+	}
 
 	var saLenght int32
 	for _, subArray := range subArrayMap {
@@ -81,11 +78,10 @@ func PickingNumbers3(a []int32) int32 {
 		}
 	}
 
-    fmt.Println(saLenght)
-    return saLenght
+	fmt.Println(saLenght)
+	return saLenght
 
 }
-
 
 // second submission
 func PickingNumbers2(a []int32) int32 {
@@ -129,7 +125,7 @@ func PickingNumbers1(a []int32) int32 {
 	var sb map[int]int
 	// any operation over uninitialized map will lead to crash
 	// uncomment the line below to sse it in action
-	// sb[0] = 0 
+	// sb[0] = 0
 	sb = make(map[int]int)
 	//sb[len(sb)] = a[0]
 	for i := 1; i < len(a); i++ {

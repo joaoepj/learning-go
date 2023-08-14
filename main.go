@@ -10,6 +10,7 @@ import (
 	"github.com/joaoepj/learning-go/lg_misc"
 	"github.com/joaoepj/learning-go/lg_problems"
 	problems "github.com/joaoepj/learning-go/lg_problems"
+	"github.com/joaoepj/learning-go/lg_algorithms"
 	"github.com/urfave/cli/v2"
 )
 
@@ -35,18 +36,25 @@ learning-go [global options]`,
 		},
 		Commands: []*cli.Command{
 			{
+				Name:    "algorithms",
+				Aliases: []string{"a"},
+				Usage:   "The Algorithm Design Manual",
+				Subcommands: []*cli.Command{
+					lg_algorithms.SCFibonacci,
+				},
+			},
+			{
 				Name:    "problems",
 				Aliases: []string{"p"},
 				Usage:   "Some HackerRank problem solutions implemented in golang.",
 				Subcommands: []*cli.Command{
-
 					{
 						Name:    "arraymanipulation",
 						Aliases: []string{"am"},
 						Usage:   "Array Manipulation Problem",
 						Action: func(c *cli.Context) error {
 							for _, arr := range problems.ArrayManipulation_arr {
-								problems.ArrayManipulation(10, arr)
+								lg_problems.ArrayManipulation(10, arr)
 							}
 							return nil
 						},
@@ -219,8 +227,9 @@ learning-go [global options]`,
 					lg_problems.SCCountSwaps,
 					lg_problems.SCTwoSum,
 					lg_problems.SCPickingNumbers,
-				}, // Closing Subcommands
+				}, // Closing problems Subcommands
 			},
+		
 			{
 				Name:    "misc",
 				Aliases: []string{"m"},
@@ -281,11 +290,11 @@ learning-go [global options]`,
 					lg_misc.SCRecursive,
 					lg_misc.SCSorting,
 					lg_misc.SCRemoveVowels,
-				},
+				}, // Closing Misc Subcommands
 			},
 		},
-	}
 
+	}
 	err := app.Run(os.Args)
 	if err != nil {
 		log.Fatal(err)

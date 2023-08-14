@@ -29,13 +29,12 @@ var Queries = [][]int32{
 	{6, 9, 1},
 }
 
-
 func SelectionSort2(a []int32) []int32 {
 	var minor int32
 
 	for i := int32(0); i < int32(len(a)); i++ {
 		minor = a[i]
-		for j := i+1; j < int32(len(a)); j++ {
+		for j := i + 1; j < int32(len(a)); j++ {
 			if a[j] < minor {
 				minor = a[j]
 				fmt.Println(minor)
@@ -46,7 +45,6 @@ func SelectionSort2(a []int32) []int32 {
 	}
 	return a
 }
-
 
 func PrintArray(a []int32) {
 	for _, v := range a {
@@ -70,14 +68,14 @@ func SelectionSort(a []int32) []int32 {
 				// position of greatest element temporarily
 				// stored in m
 				m = j
-			
+
 			}
 			// put last element of unsorted array in the place of greatest element
 			// put the greatest element as last element
 			a[m], a[i] = a[i], a[m]
 
 		}
-		
+
 	}
 	return a
 }
@@ -106,7 +104,7 @@ func SortQueries(q [][]int32) [][]int32 {
 		if row[2] > tmp_row[2] {
 			tmp_row = row
 			oi = int32(i)
-			
+
 		}
 	}
 	return append(q[:oi], q[oi+1:]...)
