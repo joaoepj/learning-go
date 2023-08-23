@@ -3,6 +3,7 @@ package lg_algorithms
 import (
 	"fmt"
 
+	"github.com/joaoepj/learning-go/lg_misc"
 	"github.com/urfave/cli/v2"
 )
 
@@ -15,6 +16,7 @@ var SCFibonacci *cli.Command = &cli.Command{
 		// how it answers much faster than RecFibonacci
 		fmt.Println("CacheFibonacci:", CacheFibonacci(cfMap, 40))
 		fmt.Println("RecFibonacci:", RecFibonacci(40))
+		fmt.Println("RecLongestIncreasingSequence:", RecLongestIncreasingSequence("abcde", "ace", 0, 0))
 		return nil
 	},
 }
@@ -48,4 +50,15 @@ func CacheFibonacci(cfMap map[int]int, n int) int {
 	cfMap[1] = 1
 
 	return cacheFibonacci(cfMap, n)
+}
+
+func RecLongestIncreasingSequence(s1 string, s2 string, i int, j int) int {
+	if i > len(s1)-1 || j > len(s2)-1 {
+		return 0
+	} else if s1[i] == s2[j] {
+		return 1 + RecLongestIncreasingSequence(s1, s2, i+1, j+1)
+	} else {
+		return lg_misc.Max(RecLongestIncreasingSequence(s1, s2, i+1, j),
+			RecLongestIncreasingSequence(s1, s2, i, j+1))
+	}
 }

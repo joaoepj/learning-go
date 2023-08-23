@@ -9,14 +9,20 @@ GOBIN ?= $(GOPATH)/bin
 GO := go
 
 
+
+
 test:
-	$(GO) test ./lg_misc
+	$(GO) test -skip="TestCuriosity/Curiosity=2" ./lg_misc
 	$(GO) test ./lg_problems
+	$(GO) test ./lg_algorithms
 verbose_test:
-	$(GO) test -v ./lg_misc ./lg_problems
+	$(GO) test -v ./lg_misc ./lg_problems ./lg_algorithms
 
 function_test:
 	$(GO) test -v -run "TestCuriosity" ./lg_misc
+
+benchmark_test:
+	$(GO) test -benchmem -bench ^Benchmark ./lg_algorithms
 
 case_function_test:
 	$(GO) test -v -run "TestCuriosity/Curiosity=1" ./lg_misc
