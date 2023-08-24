@@ -22,7 +22,7 @@ function_test:
 	$(GO) test -v -run "TestCuriosity" ./lg_misc
 
 benchmark_test:
-	$(GO) test -benchmem -bench ^Benchmark ./lg_algorithms
+	$(GO) test -v  -benchmem -bench ^Benchmark ./lg_algorithms
 
 case_function_test:
 	$(GO) test -v -run "TestCuriosity/Curiosity=1" ./lg_misc

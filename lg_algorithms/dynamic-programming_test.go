@@ -1,7 +1,6 @@
 package lg_algorithms
 
 import (
-	//"reflect"
 	"testing"
 )
 
@@ -11,8 +10,20 @@ func BenchmarkRecFibonacci(b *testing.B) {
 	}
 }
 
+func BenchmarkUltimateFibonacci(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		UltimateFibonacci(50)
+	}
+}
+
 func BenchmarkCacheFibonacci(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		CacheFibonacci(cfMap, 50)
+	}
+}
+
+func BenchmarkDynProgFibonacci(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		DynProgFibonacci(50)
 	}
 }

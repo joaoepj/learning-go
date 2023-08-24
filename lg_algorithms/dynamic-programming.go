@@ -16,7 +16,10 @@ var SCFibonacci *cli.Command = &cli.Command{
 		// how it answers much faster than RecFibonacci
 		fmt.Println("CacheFibonacci:", CacheFibonacci(cfMap, 40))
 		fmt.Println("RecFibonacci:", RecFibonacci(40))
+		fmt.Println("DynProgFibonacci:", DynProgFibonacci(40))
+		fmt.Println("UltimateFibonacci:", UltimateFibonacci(40))
 		fmt.Println("RecLongestIncreasingSequence:", RecLongestIncreasingSequence("abcde", "ace", 0, 0))
+
 		return nil
 	},
 }
@@ -50,6 +53,37 @@ func CacheFibonacci(cfMap map[int]int, n int) int {
 	cfMap[1] = 1
 
 	return cacheFibonacci(cfMap, n)
+}
+
+func DynProgFibonacci(n int) int {
+	dpf := make(map[int]int)
+
+	dpf[0] = 0
+	dpf[1] = 1
+	for i := 2; i <= n; i++ {
+		dpf[i] = dpf[i-1] + dpf[i-2]
+	}
+
+	return dpf[n]
+
+}
+
+func UltimateFibonacci(n int) int {
+	var tmp0 int = 0
+	var tmp1 int = 1
+	var next int
+
+	if n == 0 {
+		return 0
+	}
+
+	for i := 2; i < n; i++ {
+		next = tmp0 + tmp1
+		tmp1 = tmp0
+		tmp0 = next
+	}
+
+	return tmp0 + tmp1
 }
 
 func RecLongestIncreasingSequence(s1 string, s2 string, i int, j int) int {
