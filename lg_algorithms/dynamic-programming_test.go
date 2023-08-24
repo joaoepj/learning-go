@@ -7,12 +7,12 @@ import (
 
 func BenchmarkRecFibonacci(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		RecFibonacci(40)
+		RecFibonacci(50)
 	}
 }
 
 func BenchmarkCacheFibonacci(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		CacheFibonacci(cfMap, 40)
+		CacheFibonacci(cfMap, 50)
 	}
 }

@@ -7,7 +7,7 @@
 
 #### Compiling
 ```
-make build
+make ci
 ```
 
 #### Getting some help
@@ -21,12 +21,13 @@ USAGE:
    learning-go [global options]
 
 VERSION:
-   main-b42c6ff0533a37cf47f521903bc656e995b4ce41
+   main-ca2e7e91dbfc210989fc503b07b9b038501c366f
 
 COMMANDS:
-   problems, p  Some HackerRank problem solutions implemented in golang.
-   misc, m      Miscelaneous code
-   help, h      Shows a list of commands or help for one command
+   algorithms, a  The Algorithm Design Manual
+   problems, p    Some HackerRank problem solutions implemented in golang.
+   misc, m        Miscelaneous code
+   help, h        Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
    --help, -h     show help (default: false)
