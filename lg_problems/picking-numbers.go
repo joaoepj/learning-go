@@ -49,6 +49,9 @@ func PickingNumbers4(a []int32) int32 {
 	for i := 0; i < len(a); i++ {
 		CriteriaRow := []int32{0}
 		candidates := []int32{}
+		// Append two subslices as commented below will alter the original slice
+		// and yield wrong results. Better make it in two steps
+		// candidates = append(a[:i], a[i+1:]...)
 		candidates = append(candidates, a[:i]...)
 		candidates = append(candidates, a[i+1:]...)
 
