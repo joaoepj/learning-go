@@ -33,9 +33,45 @@ var SCPickingNumbers *cli.Command = &cli.Command{
 		for _, test := range PickingNumbers_arr {
 			PickingNumbers3(test)
 		}
+		fmt.Println("PickingNumbers4")
+		for _, test := range PickingNumbers_arr {
+			fmt.Println(PickingNumbers4(test))
+		}
 
 		return nil
 	},
+}
+
+// fourth submission
+func PickingNumbers4(a []int32) int32 {
+	// Write your code here
+	CriteriaMatrix := [][]int32{}
+	for i := 0; i < len(a); i++ {
+		CriteriaRow := []int32{0}
+		candidates := []int32{}
+		candidates = append(candidates, a[:i]...)
+		candidates = append(candidates, a[i+1:]...)
+
+		for j := 0; j < len(candidates); j++ {
+			criteria := lg_misc.Abs32(a[i] - candidates[j])
+			CriteriaRow = append(CriteriaRow, criteria)
+			if criteria <= 1 {
+				CriteriaRow[0]++
+			}
+		}
+		CriteriaMatrix = append(CriteriaMatrix, CriteriaRow)
+
+	}
+	fmt.Println(CriteriaMatrix)
+
+	var longest int32 = 0
+	for i := 0; i < len(CriteriaMatrix); i++ {
+		if CriteriaMatrix[i][0] > longest {
+			longest = CriteriaMatrix[i][0]
+		}
+	}
+	return longest
+
 }
 
 // third submission, a year later
