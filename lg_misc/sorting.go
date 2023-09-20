@@ -18,7 +18,7 @@ var SCSorting *cli.Command = &cli.Command{
 		//fmt.Println("SelectionSort2: ", SelectionSort2(randomArray))
 		fmt.Println("SelectionSort:", SelectionSort(randomArray))
 		fmt.Println("InsertionSort:", InsertionSort(randomArray))
-		fmt.Println("MergeSort:", MergeSort(randomArray, 0, len(randomArray)))
+		fmt.Println("MergeSort:", MergeSort(randomArray))
 		fmt.Println("mergeSort:", mergeSort(randomArray))
 		fmt.Println("SortQueries:", SortQueries(Queries))
 		return nil
@@ -112,30 +112,33 @@ func SortQueries(q [][]int32) [][]int32 {
 	return append(q[:oi], q[oi+1:]...)
 }
 
-func MergeSort(a []int32, start int, end int) []int32 {
+// Well, once you see an working example
+// It becomes much easier to put your machine to run
+func MergeSort(a []int32) []int32 {
 	// stop condition
-	if end-start > 1 {
-		middle := (start + end) / 2
-		L := a[:middle]
-		R := a[middle:]
-		fmt.Println(L, R)
-		MergeSort(a, start, middle)
-		MergeSort(a, middle, end)
-		i, j := 0, 0
-		for start < end {
-			fmt.Println(a, L, R, start, middle, end, i, j)
-			if j >= len(R) || (i < len(L) && L[i] < R[j]) {
-				a[start] = L[i]
-				i++
-			} else {
-				a[start] = R[j]
-				j++
-			}
-			start++
-		}
-
+	if len(a) < 2 {
+		return a
 	}
-	return a
+	l := MergeSort(a[:len(a)/2])
+	r := MergeSort(a[len(a)/2:])
+	merged := []int32{}
+	i, j := 0, 0
+	for i < len(l) && j < len(r) {
+		if l[i] < r[j] {
+			merged = append(merged, l[i])
+			i++
+		} else {
+			merged = append(merged, r[j])
+			j++
+		}
+	}
+	for ; i < len(l); i++ {
+		merged = append(merged, l[i])
+	}
+	for ; j < len(r); j++ {
+		merged = append(merged, r[j])
+	}
+	return merged
 }
 
 // Seeing that my code would not work
