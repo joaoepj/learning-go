@@ -11,13 +11,15 @@ var SCSorting *cli.Command = &cli.Command{
 	Aliases: []string{"st"},
 	Usage:   "Sorting Functions",
 	Action: func(c *cli.Context) error {
-		randomArray := RandomIntegers32(10)
+		randomArray := RandomIntegers32(5)
 		fmt.Println("PrintArray: ")
 		PrintArray(randomArray)
 		// Destroying randomArray
 		//fmt.Println("SelectionSort2: ", SelectionSort2(randomArray))
-		fmt.Println("SelectionSort: ", SelectionSort(randomArray))
-		fmt.Println("InsertionSort: ", InsertionSort(randomArray))
+		fmt.Println("SelectionSort:", SelectionSort(randomArray))
+		fmt.Println("InsertionSort:", InsertionSort(randomArray))
+		fmt.Println("MergeSort:", MergeSort(randomArray, 0, len(randomArray)))
+		fmt.Println("mergeSort:", mergeSort(randomArray))
 		fmt.Println("SortQueries:", SortQueries(Queries))
 		return nil
 	},
@@ -108,4 +110,68 @@ func SortQueries(q [][]int32) [][]int32 {
 		}
 	}
 	return append(q[:oi], q[oi+1:]...)
+}
+
+func MergeSort(a []int32, start int, end int) []int32 {
+	// stop condition
+	if end-start > 1 {
+		middle := (start + end) / 2
+		L := a[:middle]
+		R := a[middle:]
+		fmt.Println(L, R)
+		MergeSort(a, start, middle)
+		MergeSort(a, middle, end)
+		i, j := 0, 0
+		for start < end {
+			fmt.Println(a, L, R, start, middle, end, i, j)
+			if j >= len(R) || (i < len(L) && L[i] < R[j]) {
+				a[start] = L[i]
+				i++
+			} else {
+				a[start] = R[j]
+				j++
+			}
+			start++
+		}
+
+	}
+	return a
+}
+
+// Seeing that my code would not work
+// I decided to copy a working one
+// https://blog.boot.dev/golang/merge-sort-golang/
+// much simpler than mine, let's study it.
+// P.S.: Needless to say that my code is already a copy from
+// MIT course code. It is actually a transliteration
+// from course python code to golang.
+func mergeSort(items []int32) []int32 {
+	if len(items) < 2 {
+		return items
+	}
+	first := mergeSort(items[:len(items)/2])
+	second := mergeSort(items[len(items)/2:])
+	return merge(first, second)
+}
+
+func merge(a []int32, b []int32) []int32 {
+	final := []int32{}
+	i := 0
+	j := 0
+	for i < len(a) && j < len(b) {
+		if a[i] < b[j] {
+			final = append(final, a[i])
+			i++
+		} else {
+			final = append(final, b[j])
+			j++
+		}
+	}
+	for ; i < len(a); i++ {
+		final = append(final, a[i])
+	}
+	for ; j < len(b); j++ {
+		final = append(final, b[j])
+	}
+	return final
 }

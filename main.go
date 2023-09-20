@@ -7,10 +7,9 @@ import (
 	"log"
 	"os"
 
+	"github.com/joaoepj/learning-go/lg_algorithms"
 	"github.com/joaoepj/learning-go/lg_misc"
 	"github.com/joaoepj/learning-go/lg_problems"
-	problems "github.com/joaoepj/learning-go/lg_problems"
-	"github.com/joaoepj/learning-go/lg_algorithms"
 	"github.com/urfave/cli/v2"
 )
 
@@ -53,7 +52,7 @@ learning-go [global options]`,
 						Aliases: []string{"am"},
 						Usage:   "Array Manipulation Problem",
 						Action: func(c *cli.Context) error {
-							for _, arr := range problems.ArrayManipulation_arr {
+							for _, arr := range lg_problems.ArrayManipulation_arr {
 								lg_problems.ArrayManipulation(10, arr)
 							}
 							return nil
@@ -65,7 +64,7 @@ learning-go [global options]`,
 						Aliases: []string{"bs"},
 						Usage:   "A Very Big Sum Problem",
 						Action: func(c *cli.Context) error {
-							problems.AVeryBigSum([]int64{1.0, 2.0, 3.0})
+							lg_problems.AVeryBigSum([]int64{1.0, 2.0, 3.0})
 							return nil
 						},
 					},
@@ -74,7 +73,7 @@ learning-go [global options]`,
 						Aliases: []string{"cm"},
 						Usage:   "Cats and a Mouse Problem",
 						Action: func(c *cli.Context) error {
-							problems.CatAndMouse(5, 9, 13)
+							lg_problems.CatAndMouse(5, 9, 13)
 							return nil
 						},
 					},
@@ -83,7 +82,7 @@ learning-go [global options]`,
 						Aliases: []string{"cm2"},
 						Usage:   "Check Magazine Problem",
 						Action: func(c *cli.Context) error {
-							problems.CheckMagazine(problems.Magazine, problems.Note)
+							lg_problems.CheckMagazine(lg_problems.Magazine, lg_problems.Note)
 							return nil
 						},
 					},
@@ -93,7 +92,7 @@ learning-go [global options]`,
 						Aliases: []string{"cl"},
 						Usage:   "Climbing the Leaderboard Problem",
 						Action: func(c *cli.Context) error {
-							problems.ClimbingLeaderboard2([]int32{100, 100, 50, 40, 40, 20, 10}, []int32{5, 25, 50, 120})
+							lg_problems.ClimbingLeaderboard2([]int32{100, 100, 50, 40, 40, 20, 10}, []int32{5, 25, 50, 120})
 							return nil
 						},
 					},
@@ -104,7 +103,7 @@ learning-go [global options]`,
 						Action: func(c *cli.Context) error {
 							t1 := []int32{1, 2, 3}
 							t2 := []int32{1, 2, 3}
-							problems.CompareTriplets(t1, t2)
+							lg_problems.CompareTriplets(t1, t2)
 							return nil
 						},
 					},
@@ -114,7 +113,7 @@ learning-go [global options]`,
 						Usage:   "Designer Pdf Viewer Problem",
 						Action: func(c *cli.Context) error {
 
-							problems.DesignerPdfViewer(problems.Alphabet_height, "reality")
+							lg_problems.DesignerPdfViewer(lg_problems.Alphabet_height, "reality")
 
 							return nil
 						},
@@ -124,7 +123,7 @@ learning-go [global options]`,
 						Aliases: []string{"fms"},
 						Usage:   "Forming A Magic Square Problem",
 						Action: func(c *cli.Context) error {
-							problems.FormingMagicSquare(problems.TheSquare)
+							lg_problems.FormingMagicSquare(lg_problems.TheSquare)
 							return nil
 						},
 					},
@@ -133,7 +132,7 @@ learning-go [global options]`,
 						Aliases: []string{"hgs"},
 						Usage:   "Hourglass Sum Problem",
 						Action: func(c *cli.Context) error {
-							problems.HourglassSum(problems.HourglassSum_arr)
+							lg_problems.HourglassSum(lg_problems.HourglassSum_arr)
 							return nil
 						},
 					},
@@ -142,7 +141,7 @@ learning-go [global options]`,
 						Aliases: []string{"hr"},
 						Usage:   "Hurdle Race Problem",
 						Action: func(c *cli.Context) error {
-							problems.Staircase(5)
+							lg_problems.Staircase(5)
 							return nil
 						},
 					},
@@ -151,7 +150,7 @@ learning-go [global options]`,
 						Aliases: []string{"lr"},
 						Usage:   "Left Rotation Problem",
 						Action: func(c *cli.Context) error {
-							problems.RotLeft([]int32{1, 2, 3, 4, 5}, 3)
+							lg_problems.RotLeft([]int32{1, 2, 3, 4, 5}, 3)
 							return nil
 						},
 					},
@@ -160,7 +159,7 @@ learning-go [global options]`,
 						Aliases: []string{"mb"},
 						Usage:   "Migratory Birds Problem",
 						Action: func(c *cli.Context) error {
-							problems.MigratoryBirds(problems.MigratoryBirds_arr)
+							lg_problems.MigratoryBirds(lg_problems.MigratoryBirds_arr)
 							return nil
 						},
 					},
@@ -169,8 +168,8 @@ learning-go [global options]`,
 						Aliases: []string{"mb2"},
 						Usage:   "Minimun Bribes Problem",
 						Action: func(c *cli.Context) error {
-							for _, arr := range problems.MinimumBribes_arr {
-								problems.MinimumBribes(arr)
+							for _, arr := range lg_problems.MinimumBribes_arr {
+								lg_problems.MinimumBribes(arr)
 							}
 							return nil
 						},
@@ -180,8 +179,8 @@ learning-go [global options]`,
 						Aliases: []string{"ms2"},
 						Usage:   "Minimun Swaps 2 Problem",
 						Action: func(c *cli.Context) error {
-							for _, arr := range problems.MinimumSwaps2_arr {
-								problems.MinimumSwaps2(arr)
+							for _, arr := range lg_problems.MinimumSwaps2_arr {
+								lg_problems.MinimumSwaps2(arr)
 							}
 							return nil
 						},
@@ -193,7 +192,7 @@ learning-go [global options]`,
 						Usage:   "Min-Max Sum Problem",
 						Action: func(c *cli.Context) error {
 							arr := []int32{2, 8, 5, 9, 2, 5, 7, 1}
-							problems.MinMaxSum(arr)
+							lg_problems.MinMaxSum(arr)
 							return nil
 						},
 					},
@@ -202,7 +201,7 @@ learning-go [global options]`,
 						Aliases: []string{"mi"},
 						Usage:   "Missing Integer Problem",
 						Action: func(c *cli.Context) error {
-							problems.TestMissingInteger()
+							lg_problems.TestMissingInteger()
 							return nil
 						},
 					},
@@ -211,7 +210,7 @@ learning-go [global options]`,
 						Aliases: []string{"s"},
 						Usage:   "Staircase Problem",
 						Action: func(c *cli.Context) error {
-							problems.Staircase(5)
+							lg_problems.Staircase(5)
 							return nil
 						},
 					},
@@ -220,16 +219,20 @@ learning-go [global options]`,
 						Aliases: []string{"ts"},
 						Usage:   "Two String Problem",
 						Action: func(c *cli.Context) error {
-							problems.TwoStrings(problems.TSMajor, problems.TSMinor)
+							lg_problems.TwoStrings(lg_problems.TSMajor, lg_problems.TSMinor)
 							return nil
 						},
 					},
 					lg_problems.SCCountSwaps,
 					lg_problems.SCTwoSum,
 					lg_problems.SCPickingNumbers,
+					lg_problems.SCAngryProfessor,
+					lg_problems.SCBeautifulDays,
+					lg_problems.SCUtopianTree,
+					lg_problems.SCViralAdvertisement,
 				}, // Closing problems Subcommands
 			},
-		
+
 			{
 				Name:    "misc",
 				Aliases: []string{"m"},
@@ -293,7 +296,6 @@ learning-go [global options]`,
 				}, // Closing Misc Subcommands
 			},
 		},
-
 	}
 	err := app.Run(os.Args)
 	if err != nil {
